@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import styled from 'styled-components';
 import NeonButton from '@components/atom/button/NeonButton';
 import WrongButton from '@components/atom/button/WrongButton';
@@ -8,16 +7,11 @@ import RippleButton from '@components/atom/button/RippleButton';
 export default function ButtonsPage() {
   
   return (
-      <>
-        <Head>
-          <title>buttons</title>
-        </Head>
-        <Wrap>
-          <NeonButton/>
-          <WrongButton/>
-          <RippleButton/>
-        </Wrap>
-      </>
+    <Wrap>
+      <NeonButton/>
+      <WrongButton/>
+      <RippleButton/>
+    </Wrap>
   );
 }
 

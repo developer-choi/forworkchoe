@@ -1,6 +1,6 @@
 import React, {AnimationEvent, ComponentProps, forwardRef, MouseEvent, Ref, useCallback, useState} from 'react';
 import styled, {keyframes} from 'styled-components';
-import ButtonExtend from '@components/atom/button/ButtonExtend';
+import ButtonExtend from '@component/atom/button/ButtonExtend';
 import classNames from 'classnames';
 
 export default forwardRef(function WrongButton(props: ComponentProps<'button'>, ref: Ref<HTMLButtonElement>) {

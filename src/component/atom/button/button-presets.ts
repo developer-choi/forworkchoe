@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import ButtonExtend from '@components/atom/button/ButtonExtend';
-import {COLORS} from '@utils/style/theme';
+import ButtonExtend from '@component/atom/button/ButtonExtend';
+import {COLORS} from '@util/style/theme';
 
 /**
  * Size버튼은 버튼의 윤곽만 담당한다. (크기, 테두리 둥근정도)

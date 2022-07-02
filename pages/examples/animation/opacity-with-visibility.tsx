@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {Button, ReactButton} from '@components/atom/button/button-presets';
+import {Button, ReactButton} from '@component/atom/button/button-presets';
 import styled from 'styled-components';
 import classNames from 'classnames';
 

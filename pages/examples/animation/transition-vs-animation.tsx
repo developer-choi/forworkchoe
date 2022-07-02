@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {Button} from '@components/atom/button/button-presets';
+import {Button} from '@component/atom/button/button-presets';
 import styled, {css, keyframes} from 'styled-components';
 
 /**

@@ -1,6 +1,6 @@
 import styled, {keyframes} from 'styled-components';
 import React, {ComponentProps, forwardRef, Ref} from 'react';
-import ButtonExtend from '@components/atom/button/ButtonExtend';
+import ButtonExtend from '@component/atom/button/ButtonExtend';
 
 export default forwardRef(function NeonButton(props: ComponentProps<'button'>, ref: Ref<HTMLButtonElement>) {
   

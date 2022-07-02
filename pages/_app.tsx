@@ -1,8 +1,8 @@
 import React from 'react';
 import type {AppProps} from 'next/app';
 import {ThemeProvider} from 'styled-components';
-import {theme} from '@utils/style/theme';
-import {GlobalStyle} from '@utils/style/global';
+import {theme} from '@util/style/theme';
+import {GlobalStyle} from '@util/style/global';
 
 /**
  * https://github.com/vercel/next.js/blob/master/examples/with-styled-components/pages/_app.js

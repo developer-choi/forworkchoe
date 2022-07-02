@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import NeonButton from '@components/atom/button/NeonButton';
-import WrongButton from '@components/atom/button/WrongButton';
-import RippleButton from '@components/atom/button/RippleButton';
+import NeonButton from '@component/atom/button/NeonButton';
+import WrongButton from '@component/atom/button/WrongButton';
+import RippleButton from '@component/atom/button/RippleButton';
 
 export default function ButtonsPage() {
   

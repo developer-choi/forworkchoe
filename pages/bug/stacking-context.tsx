@@ -1,8 +1,8 @@
 import React, {useCallback} from 'react';
 import Head from 'next/head';
-import {Button} from '@components/atom/button/button-presets';
+import {Button} from '@component/atom/button/button-presets';
 import styled from 'styled-components';
-import {absoluteAllZero} from '@utils/style/css';
+import {absoluteAllZero} from '@util/style/css';
 
 export default function StackingContextPage() {
   const onClickStaticButton = useCallback(() => {

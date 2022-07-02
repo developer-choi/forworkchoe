@@ -1,21 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import styled from 'styled-components';
-import SomeComponent from '@components/SomeComponent';
-import useSomeCustomHooks from '@custom-hooks/useSomeCustomHooks';
-import SomeApi from '@api/SomeApi';
+import SomeComponent from '@component/SomeComponent';
 
 export default function Home() {
-  
-  useSomeCustomHooks();
-  
-  useEffect(() => {
-    (async () => {
-      const someApi = new SomeApi();
-      console.log(await someApi.getSomeData());
-    })().then();
-  }, []);
   
   return (
     <Container>
@@ -75,12 +64,6 @@ export default function Home() {
       <SomeComponent/>
     </Container>
   )
-}
-
-export async function getServerSideProps() {
-  return {
-    props: {}
-  };
 }
 
 const Container = styled.div`

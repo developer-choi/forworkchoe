@@ -1,6 +1,6 @@
 import React, {ComponentProps, useEffect, useState} from 'react';
-import {usePrevious} from '@custom-hooks/usePrevious';
-import {theme} from '@utils/style/theme';
+import {usePrevious} from '@custom-hook/usePrevious';
+import {theme} from '@util/style/theme';
 import styled, {keyframes} from 'styled-components';
 
 export default function ProgressBarPage() {

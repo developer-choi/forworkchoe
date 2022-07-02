@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from 'react';
-import { Button } from '@components/atom/button/button-presets';
-import styled, { css, keyframes } from 'styled-components';
+import React, {useCallback, useState} from 'react';
+import {Button} from '@components/atom/button/button-presets';
+import styled, {css, keyframes} from 'styled-components';
 
 /**
  * transition이랑 다르게 animation은 css속성이 사라질 때(= active class가 사라져서 active class로 선언했던 스타일들이 적용되지 않을 때)

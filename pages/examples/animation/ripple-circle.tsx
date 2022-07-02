@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 export default function RippleCirclePage() {
   
@@ -44,8 +44,8 @@ const rippleAnimation = keyframes`
   }
 `;
 
-function RippleCircle({ animationDelay = 0 }: { animationDelay?: number }) {
-  return <StyledRippleCircle style={{ animationDelay: `${animationDelay}s` }}/>;
+function RippleCircle({animationDelay = 0}: { animationDelay?: number }) {
+  return <StyledRippleCircle style={{animationDelay: `${animationDelay}s`}}/>;
 }
 
 const StyledRippleCircle = styled.div`

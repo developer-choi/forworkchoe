@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from 'react';
-import { Button, ReactButton } from '@components/atom/button/button-presets';
+import React, {useCallback, useState} from 'react';
+import {Button, ReactButton} from '@components/atom/button/button-presets';
 import styled from 'styled-components';
 import classNames from 'classnames';
 
@@ -18,8 +18,8 @@ export default function OpacityWithVisibilityPage() {
   return (
     <div>
       <Button onClick={toggle}>Toggle</Button>
-      <CustomButton className={classNames({ active })} onClick={onClick}>CLICK ME</CustomButton>
-      <OpacityVisibilityButton className={classNames({ active })} onClick={onClick}>
+      <CustomButton className={classNames({active})} onClick={onClick}>CLICK ME</CustomButton>
+      <OpacityVisibilityButton className={classNames({active})} onClick={onClick}>
         CLICK ME
       </OpacityVisibilityButton>
     </div>

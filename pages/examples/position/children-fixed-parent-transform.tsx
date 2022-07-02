@@ -5,14 +5,14 @@ import styled, {keyframes} from 'styled-components';
 export default function ChildrenFixedParentTransformPage() {
   
   return (
-      <>
-        <Head>
-          <title>children-fixed-parent-transform</title>
-        </Head>
-        <div>
-          <Parent/>
-        </div>
-      </>
+    <>
+      <Head>
+        <title>children-fixed-parent-transform</title>
+      </Head>
+      <div>
+        <Parent/>
+      </div>
+    </>
   );
 }
 
@@ -28,9 +28,9 @@ const ParentWrap = styled.div`
 
 function Parent() {
   return (
-      <ParentWrap>
-        <Children/>
-      </ParentWrap>
+    <ParentWrap>
+      <Children/>
+    </ParentWrap>
   );
 }
 
@@ -51,10 +51,10 @@ const ChildWrap = styled.div`
 
 function Children() {
   return (
-      <ChildWrap>
-        position fixed로 고정되어있음.
-        <br/>
-        그런데 부모에 transform이 걸려있음.
-      </ChildWrap>
+    <ChildWrap>
+      position fixed로 고정되어있음.
+      <br/>
+      그런데 부모에 transform이 걸려있음.
+    </ChildWrap>
   );
 }

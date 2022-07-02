@@ -25,18 +25,18 @@ export default function OverflowAnchorPage() {
   }, []);
   
   return (
-      <>
-        <Head>
-          <title>overflow-anchor</title>
-        </Head>
-        <Container>
-          {list.map(({uniqueKey, value}) => (
-              <Item key={`item-${uniqueKey}`} className="item">
-                {value}
-              </Item>
-          ))}
-        </Container>
-      </>
+    <>
+      <Head>
+        <title>overflow-anchor</title>
+      </Head>
+      <Container>
+        {list.map(({uniqueKey, value}) => (
+          <Item key={`item-${uniqueKey}`} className="item">
+            {value}
+          </Item>
+        ))}
+      </Container>
+    </>
   );
 }
 

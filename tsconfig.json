@@ -38,7 +38,8 @@
       "@custom-hook/*": [
         "src/util/custom-hook/*"
       ]
-    }
+    },
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",

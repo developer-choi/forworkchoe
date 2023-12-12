@@ -8,7 +8,6 @@ const reset = css`
 `;
 
 const font = css`
-
   // @font-face {
   //   font-family: KoreanFont2;
   //   src: url(...);
@@ -21,7 +20,6 @@ const font = css`
 `;
 
 const layout = css`
-  
   html, body, #__next {
     height: 100%;
   }
@@ -35,7 +33,6 @@ const layout = css`
 `;
 
 export const GlobalStyle = createGlobalStyle`
-
   ${reset};
   ${font};
   ${layout};

@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+/**
+ * Doc : https://docs.google.com/document/d/1Ja8GOJ1wBbFzD5G2-1cJbz6AMUc1NxpA7QU674LpCOU/edit#heading=h.2tcq6sm1q2op
+ */
 export default function Home() {
   return (
     <Wrapper>
@@ -41,7 +44,7 @@ const ScrollWrapper = styled.div`
     width: 20px;
   }
   
-  // 아이폰, 아이패드 대응 [Google Docs URL 링크]
+  // 아이폰, 아이패드 대응
   @supports (-webkit-overflow-scrolling: touch) {
     padding-right: 20px;
   }

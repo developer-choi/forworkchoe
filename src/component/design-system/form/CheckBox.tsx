@@ -2,6 +2,9 @@ import type {ComponentPropsWithoutRef} from 'react';
 import styled from 'styled-components';
 import FormErrorText from '@component/design-system/form/FormErrorText';
 
+/**
+ * Doc : https://docs.google.com/document/d/1l3CZHTA4ja1ovUC0fiZ9-Fb72_PMXdLTx_0gNhZ39Jg/edit
+ */
 interface CheckBoxProps extends ComponentPropsWithoutRef<'input'> {
   label?: string;
   error?: string;

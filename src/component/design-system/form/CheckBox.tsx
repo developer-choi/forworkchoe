@@ -1,6 +1,5 @@
 import type {ComponentPropsWithoutRef} from 'react';
 import styled from 'styled-components';
-import FormLabel from '@component/design-system/form/FormLabel';
 import FormErrorText from '@component/design-system/form/FormErrorText';
 
 interface CheckBoxProps extends ComponentPropsWithoutRef<'input'> {
@@ -12,18 +11,30 @@ export default function CheckBox({label, error, checked, ...rest}: CheckBoxProps
   return (
     // 이 class name으로 사용하는곳에서 커스텀 대응
     <div className="checkbox-wrap">
-      <StyledCheckBox checked={checked} {...rest}/>
+      <InnerWrap>
+        <StyledCheckBox type="checkbox" checked={checked} {...rest}/>
 
-      <NaverCheckBoxSvg color={checked ? 'green' : 'gray'}/>
+        <NaverCheckBoxSvg color={checked ? 'green' : 'gray'}/>
 
-      {!label ? null : <FormLabel>{label}</FormLabel>}
+        {!label ? null : <CheckboxText>{label}</CheckboxText>}
+      </InnerWrap>
       <FormErrorText>{error}</FormErrorText>
     </div>
   )
 }
 
+const InnerWrap = styled.label`
+  display: flex;
+  align-items: center;
+`;
+
+// Radio 에서 재사용
+export const CheckboxText = styled.span`
+  margin-left: 8px;
+`;
+
 const StyledCheckBox = styled.input`
-  
+  appearance: none;
 `;
 
 function NaverCheckBoxSvg({color, ...rest}: ComponentPropsWithoutRef<'svg'>) {

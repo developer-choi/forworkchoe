@@ -12,5 +12,7 @@ export default function FormErrorText({children, ...rest}: ComponentPropsWithout
 }
 
 const StyledSpan = styled.span`
+  display: inline-block;
   margin-top: 8px;
+  color: red;
 `;

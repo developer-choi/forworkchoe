@@ -6,9 +6,9 @@ export interface LabelProps extends ComponentPropsWithoutRef<'label'> {
   children: string; // TODO string이 아닌 케이스가 있을까?
 }
 
-export default function FormLabel({required, children}: LabelProps) {
+export default function FormLabel({required, children, ...rest}: LabelProps) {
   return (
-    <StyledLabel>
+    <StyledLabel {...rest}>
       {children} {!required ? null : '*'}
     </StyledLabel>
   )

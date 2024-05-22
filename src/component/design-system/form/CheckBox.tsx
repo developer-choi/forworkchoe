@@ -36,6 +36,11 @@ export const CheckboxText = styled.span`
   margin-left: 8px;
 `;
 
+/**
+ * 기본 체크박스 아이콘 숨기는 방법은 appearance가 정석임.
+ * display none 같은건 포커스안가서 안되고
+ * width 0 height 0은 사파리에서 동작을 안해서 그대로 기본 아이콘 보였음.
+ */
 const StyledCheckBox = styled.input`
   appearance: none;
 `;

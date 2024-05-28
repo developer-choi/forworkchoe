@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import FormErrorText from '@component/design-system/form/FormErrorText';
 
 /**
- * Doc : https://docs.google.com/document/d/1l3CZHTA4ja1ovUC0fiZ9-Fb72_PMXdLTx_0gNhZ39Jg/edit
+ * Doc : https://docs.google.com/document/d/1rqmOi11-M61mjOkk5i63SigHNN8BJYLpka8c73tSLb0/edit
  */
 interface CheckBoxProps extends ComponentPropsWithoutRef<'input'> {
   label?: string;
@@ -37,12 +37,15 @@ export const CheckboxText = styled.span`
 `;
 
 /**
- * 기본 체크박스 아이콘 숨기는 방법은 appearance가 정석임.
- * display none 같은건 포커스안가서 안되고
- * width 0 height 0은 사파리에서 동작을 안해서 그대로 기본 아이콘 보였음.
+ * display none 같은건 포커스안가서 안됨.
  */
 const StyledCheckBox = styled.input`
+  // 윈도우, 갤럭시, 아이폰 모두 이거면됨
   appearance: none;
+  
+  // 맥기기 PC 사파리를 위해... 
+  width: 0;
+  height: 0;
 `;
 
 function NaverCheckBoxSvg({color, ...rest}: ComponentPropsWithoutRef<'svg'>) {

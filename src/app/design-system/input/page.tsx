@@ -1,0 +1,109 @@
+'use client';
+
+import {useForm} from 'react-hook-form';
+import React, {useState} from 'react';
+import Input from '@/components/form/Input';
+import {styled} from 'styled-components';
+import PasswordInput from '@/components/form/PasswordInput';
+import {filterPropsList, generatePropsList} from '@/util/extend/test/generate-prop';
+
+/**
+ * Doc : https://docs.google.com/document/d/1l3CZHTA4ja1ovUC0fiZ9-Fb72_PMXdLTx_0gNhZ39Jg/edit
+ * URL: http://localhost:3000/design-system/input
+ */
+const {combinations, filterRecord} = generatePropsList<TextFieldProps>({
+  disabled: 'boolean',
+  type: [undefined, 'password'],
+  error: [undefined, 'error text'],
+  label: [undefined, 'label text'],
+  placeholder: [undefined, 'placeholder text'],
+  info: [undefined, 'info text'],
+});
+
+export default function TextFieldPage() {
+  const {register, watch} = useForm<TestFormData>({
+    defaultValues: {
+      disabled: false,
+
+      // 폼 기본값에서 undefined를 주면안되고 그대신 빈문자열을 줘야함. 렌더링한번되고나면 폼데이터값이 빈문자열로 리셋되기떄문.
+      placeholder: '',
+      info: '',
+      label: '',
+      error: '',
+      type: '',
+    },
+  });
+
+  const filteredList = filterPropsList(combinations, watch());
+
+  return (
+    <Wrap>
+      <form>
+        {Object.entries(filterRecord).map(([key, array]) => (
+          <div key={key}>
+            {array.map(({name, value, type}) => (
+              <label key={name}>
+                <input type={type} value={value} {...register(key as keyof TextFieldProps)} />
+                {name}
+              </label>
+            ))}
+          </div>
+        ))}
+      </form>
+
+      <TextFieldList>
+        {filteredList.map((props, index) => (
+          <TextFieldTester key={index} {...props} />
+        ))}
+      </TextFieldList>
+    </Wrap>
+  );
+}
+
+interface TestFormData {
+  placeholder: string | '';
+  label: string | '';
+  error: string | '';
+  info: string | '';
+  type: 'text' | 'password' | '';
+  disabled: boolean;
+}
+
+interface TextFieldProps {
+  placeholder: string | undefined;
+  label: string | undefined;
+  error: string | undefined;
+  info: string | undefined;
+  type: 'text' | 'password' | undefined;
+  disabled: boolean;
+}
+
+function TextFieldTester({type, ...rest}: TextFieldProps) {
+  const [value, setValue] = useState('');
+
+  if (type === 'password') {
+    return (
+      <PasswordInput {...rest} value={value} onChange={(event) => setValue(event.target.value)}/>
+    );
+  } else {
+    return <Input {...rest} value={value} onChange={(event) => setValue(event.target.value)}/>;
+  }
+}
+
+const Wrap = styled.div`
+  padding: 20px;
+  
+  form label:has(input[type="radio"]) {
+    margin-right: 8px;
+  }
+`;
+
+const TextFieldList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  
+  > * {
+    width: 300px;
+  }
+`;

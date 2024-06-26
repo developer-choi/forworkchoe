@@ -60,18 +60,22 @@ button, input, textarea {
   margin: 0;
   padding: 0;
   border: none;
+  
+  /* 브라우저가 해당 태그에 직접 기본스타일 지정하고있어서, body로 부터 기본값 상속받기위해 작성함. */
   font-size: inherit;
   color: inherit;
+}
+
+/**
+ * button은 기본 배경색 disabled 배경색 둘 다 있는데,
+ * button, button:disabled 안하고 button 하나만 배경색 지정해도 둘 다 지정됨.
+ */
+button, input:disabled, textarea:disabled {
   background: transparent;
 }
 
 textarea {
   resize: none;
-}
-
-textarea:disabled {
-  /* 사파리 브라우저 기본스타일 무시 */
-  background-color: transparent;
 }
 
 /* input type number 화살표 지우기 */

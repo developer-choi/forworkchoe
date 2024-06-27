@@ -2,7 +2,7 @@
 
 import {useForm} from 'react-hook-form';
 import React from 'react';
-import {styled} from 'styled-components';
+import styles from './index.module.scss';
 import {filterPropsList, generatePropsList} from '@/util/extend/test/generate-prop';
 import Button, {ButtonColor, ButtonSize, ButtonVariant} from '@/components/element/Button';
 import DesignSystemTestForm from '@/components/test/DesignSystemTestForm';
@@ -12,6 +12,15 @@ import InfoSvg from '@/components/icon/InfoSvg';
  * Doc : https://docs.google.com/document/d/1aEHPwWUlT8nLpzuJwogzQerYawVbWIk8WCMRaxleDaI/edit
  * URL: http://localhost:3000/design-system/button
  */
+const {combinations, filterRecord} = generatePropsList<ButtonProps>({
+  disabled: 'boolean', // boolean이면 [true, false] 하지말고 이렇게. 하면 이따 filterRecord에서도 type checkbox로 옴
+  loading: 'boolean',
+  color: ['all', undefined, 'primary', 'secondary'],
+  size: ['all', undefined, 'large', 'medium'],
+  variant: ['all', undefined, 'outlined', 'contained'],
+  icon: 'boolean',
+});
+
 export default function ButtonPage() {
   const {register, watch} = useForm<FormData>({
     defaultValues: {
@@ -31,23 +40,14 @@ export default function ButtonPage() {
 
   return (
     <DesignSystemTestForm filterRecord={filterRecord} register={register}>
-      <ButtonWrap>
+      <div className={styles.wrap}>
         {filteredList.map((props, index) => (
           <ButtonInfo key={index} visibleInfo={filter.visibleInfo} props={props}/>
         ))}
-      </ButtonWrap>
+      </div>
     </DesignSystemTestForm>
   );
 }
-
-const {combinations, filterRecord} = generatePropsList<ButtonProps>({
-  disabled: 'boolean', // boolean이면 [true, false] 하지말고 이렇게. 하면 이따 filterRecord에서도 type checkbox로 옴
-  loading: 'boolean',
-  color: ['all', undefined, 'primary', 'secondary'],
-  size: ['all', undefined, 'large', 'medium'],
-  variant: ['all', undefined, 'outline', 'fill'],
-  icon: 'boolean',
-});
 
 interface FormData {
   variant: ButtonVariant | 'all' | undefined;
@@ -58,16 +58,6 @@ interface FormData {
   visibleInfo: boolean;
   icon: boolean;
 }
-
-const ButtonWrap = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  
-  > * {
-    width: 200px;
-  }
-`;
 
 interface ButtonInfoProps {
   visibleInfo: boolean;

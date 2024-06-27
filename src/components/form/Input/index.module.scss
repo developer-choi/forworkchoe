@@ -1,0 +1,23 @@
+@import "/src/components/form/form-elements/index.module";
+
+/**
+ * 얘가 실질적인 인풋같이 생긴 테두리도 보여주고 그 안에 아이콘, <input>등을 감싸야함.
+ * 또한, 아이콘은 절대 position absolute 하면안됨. 그랬다간 별도로 텍스트 입력하던게 아이콘 덮을 수 있으니,
+ * flex container로 input의 최대길이를 제한하는게 편함.
+ */
+.innerContainer {
+  @include commonFormElementWrapper;
+  display: flex;
+  align-items: center; // 아이콘 수직 중앙정렬
+  gap: 4px; // 아이콘과 input 사이 간격
+  
+  >:not(input) {
+    flex-shrink: 0; // 아이콘 크기가 인풋 크기와 상관없이 줄어들지않도록.
+    height: map-get($formElement, inputLineHeight); // 아이콘 높이값은 Input의
+  }
+}
+
+.input {
+  @include commonFormElement;
+  flex-grow: 1;
+}

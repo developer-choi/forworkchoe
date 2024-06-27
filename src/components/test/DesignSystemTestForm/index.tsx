@@ -1,6 +1,7 @@
 import React, {PropsWithChildren} from 'react';
-import {styled} from 'styled-components';
+import styles from './index.module.scss';
 import {UseFormRegister} from 'react-hook-form';
+import {H2} from '@/components/element/typography';
 
 export interface DesignSystemTestFormProps extends PropsWithChildren {
   register: UseFormRegister<any>;
@@ -13,9 +14,9 @@ export interface DesignSystemTestFormProps extends PropsWithChildren {
 
 export default function DesignSystemTestForm({children, register, filterRecord}: DesignSystemTestFormProps) {
   return (
-    <Wrap>
-      <h2>필터</h2>
-      <Form>
+    <div className={styles.wrap}>
+      <H2>필터</H2>
+      <form>
         {Object.entries(filterRecord).map(([key, array]) => (
           <div key={key}>
             {array.map(({name, value, type}) => (
@@ -33,19 +34,9 @@ export default function DesignSystemTestForm({children, register, filterRecord}:
             버튼 속성 보기
           </label>
         </div>
-      </Form>
-      <h2 style={{marginTop: 60}}>버튼</h2>
+      </form>
+      <H2 style={{marginTop: 60}}>버튼</H2>
       {children}
-    </Wrap>
+    </div>
   )
 }
-
-const Wrap = styled.div`
-  padding: 20px;
-  
-  form label:has(input[type="radio"]) {
-    margin-right: 8px;
-  }
-`;
-
-const Form = styled.form``;

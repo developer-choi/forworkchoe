@@ -3,7 +3,7 @@
 import {useForm} from 'react-hook-form';
 import React, {useState} from 'react';
 import Input from '@/components/form/Input';
-import {styled} from 'styled-components';
+import styles from './index.module.scss';
 import PasswordInput from '@/components/form/PasswordInput';
 import {filterPropsList, generatePropsList} from '@/util/extend/test/generate-prop';
 
@@ -37,7 +37,7 @@ export default function TextFieldPage() {
   const filteredList = filterPropsList(combinations, watch());
 
   return (
-    <Wrap>
+    <div className={styles.wrap}>
       <form>
         {Object.entries(filterRecord).map(([key, array]) => (
           <div key={key}>
@@ -51,12 +51,12 @@ export default function TextFieldPage() {
         ))}
       </form>
 
-      <TextFieldList>
+      <div className={styles.inputList}>
         {filteredList.map((props, index) => (
-          <TextFieldTester key={index} {...props} />
+          <InputTester key={index} {...props} />
         ))}
-      </TextFieldList>
-    </Wrap>
+      </div>
+    </div>
   );
 }
 
@@ -78,7 +78,7 @@ interface TextFieldProps {
   disabled: boolean;
 }
 
-function TextFieldTester({type, ...rest}: TextFieldProps) {
+function InputTester({type, ...rest}: TextFieldProps) {
   const [value, setValue] = useState('');
 
   if (type === 'password') {
@@ -89,21 +89,3 @@ function TextFieldTester({type, ...rest}: TextFieldProps) {
     return <Input {...rest} value={value} onChange={(event) => setValue(event.target.value)}/>;
   }
 }
-
-const Wrap = styled.div`
-  padding: 20px;
-  
-  form label:has(input[type="radio"]) {
-    margin-right: 8px;
-  }
-`;
-
-const TextFieldList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  
-  > * {
-    width: 300px;
-  }
-`;

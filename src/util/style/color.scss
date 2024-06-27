@@ -1,16 +1,16 @@
 $grayColors: (
-  #333333, // nth($grayColors, 1)
-  #BDBDBD, // nth($grayColors, 2)
-  #F5F5F5, // nth($grayColors, 3)
+  #333333, // nth($grayColors, 1);
+  #BDBDBD, // nth($grayColors, 2);
+  #F5F5F5, // nth($grayColors, 3);
 );
 
 $stateColors: (
-  success: #3FB034, // map-get($stateColors, success)
-  warning: #ff0000, // map-get($stateColors, warning)
-  disabled: nth($grayColors, 2) // map-get($stateColors, disabled)
+  success: #3FB034, // map-get($stateColors, success);
+  error: #ff0000, // map-get($stateColors, error);
+  disabled: nth($grayColors, 2) // map-get($stateColors, disabled);
 );
 
 $brandColors: (
-  primary: #abf123, // map-get($brandColors, primary)
-  secondary: #a82631 // map-get($brandColors, secondary)
+  primary: #0099bb, // map-get($brandColors, primary);
+  secondary: #a82631 // map-get($brandColors, secondary);
 )

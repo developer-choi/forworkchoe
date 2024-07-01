@@ -16,7 +16,9 @@ export default function PasswordInput(props: PasswordInputProps) {
     setIsPasswordVisible(false);
   }, []);
 
-  const eyeIcon = isPasswordVisible ? <EyeOffSvg onClick={hidePassword} /> : <EyeOnSvg onClick={showPassword} />;
+  const fill = props.disabled ? 'lightgray' : 'gray';
+
+  const eyeIcon = isPasswordVisible ? <EyeOffSvg fill={fill} onClick={hidePassword} /> : <EyeOnSvg fill={fill} onClick={showPassword} />;
 
   return <Input type={isPasswordVisible ? "text" : "password"} rightRender={eyeIcon} {...props} />;
 }

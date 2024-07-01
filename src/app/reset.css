@@ -66,6 +66,11 @@ button, input, textarea {
   color: inherit;
 }
 
+/* 이 2개는 기본 폰트가 따로 적용되어있어서 이렇게 해야 body로 부터 커스텀 폰트 상속받음. */
+input, textarea {
+  font-family: inherit;
+}
+
 /**
  * button은 기본 배경색 disabled 배경색 둘 다 있는데,
  * button, button:disabled 안하고 button 하나만 배경색 지정해도 둘 다 지정됨.

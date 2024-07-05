@@ -1,13 +1,13 @@
-@import "/src/components/form/form-elements/index.module";
+@use "/src/components/form/form-elements/index.module" as form;
 
 .innerContainer {
-  @include commonFormElementWrapper;
+  @include form.commonFormElementWrapper;
   font-size: 0; // 이거 해야 컨테이너와 textarea 사이 폰트사이즈만큼의 여백이 안생김.
   position: relative;
 }
 
 .textarea {
-  @include commonFormElement;
+  @include form.commonFormElement;
   font-size: 14px;
   width: 100%;
   height: 100%;

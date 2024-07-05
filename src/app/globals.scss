@@ -1,11 +1,11 @@
-@import "/src/util/style/color.scss";
+@use "/src/util/style/color" as color;
 
 html, body {
   height: 100%;
 }
 
 body {
-  color: nth($grayColors, 1);
+  color: nth(color.$grayColors, 1);
   font-size: 14px;
 }
 

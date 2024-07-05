@@ -1,4 +1,4 @@
-@import "/src/components/form/form-elements/index.module";
+@use "/src/components/form/form-elements/index.module" as form;
 
 /**
  * 얘가 실질적인 인풋같이 생긴 테두리도 보여주고 그 안에 아이콘, <input>등을 감싸야함.
@@ -6,7 +6,7 @@
  * flex container로 input의 최대길이를 제한하는게 편함.
  */
 .innerContainer {
-  @include commonFormElementWrapper;
+  @include form.commonFormElementWrapper;
   display: flex;
   align-items: center; // 아이콘 수직 중앙정렬
   gap: 4px; // 아이콘과 input 사이 간격
@@ -16,11 +16,11 @@
     
     // 인풋에 노출되는 모든 아이콘 크기를 비율에맞춰 고정하기위함
     width: auto;
-    height: map-get($formElement, inputLineHeight);
+    height: map-get(form.$formElement, inputLineHeight);
   }
 }
 
 .input {
-  @include commonFormElement;
+  @include form.commonFormElement;
   flex-grow: 1;
 }

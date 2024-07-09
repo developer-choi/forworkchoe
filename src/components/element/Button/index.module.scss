@@ -62,7 +62,7 @@
 
 /**
  * @param variant outlined / contained
- * @param colorOrState disabled / gray / primary / english / japanese / chinese
+ * @param colorOrState disabled / primary / secondary
  */
 @mixin colorSet($variant, $colorOrState) {
   //  disabled 상태인 경우 강제로 contained 적용

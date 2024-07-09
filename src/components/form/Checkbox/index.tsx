@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import IcCheck from '@/components/icon/IcCheck';
 import IcUncheck from '@/components/icon/IcUncheck';
 
+// https://docs.google.com/document/d/1rqmOi11-M61mjOkk5i63SigHNN8BJYLpka8c73tSLb0/edit?usp=drivesdk
 export interface CheckboxProps extends Omit<ComponentPropsWithRef<'input'>, 'type'> {
   label?: string;
   color?: 'primary' | 'secondary';

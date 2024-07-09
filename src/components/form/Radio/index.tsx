@@ -5,7 +5,7 @@ import IcRadio from '@/components/icon/IcRadio';
 import {CheckboxProps} from '@/components/form/Checkbox';
 import {FormElementWrapper, FormElementWrapperProps} from '@/components/form/form-elements';
 
-// 현재 디자인시스템에 맞게 디자인을 다시 수정한 컴포넌트이며, 차차 이 컴포넌트로 기존 <Radio 컴포넌트를 대체해 나가겠습니다.
+// https://docs.google.com/document/d/1rqmOi11-M61mjOkk5i63SigHNN8BJYLpka8c73tSLb0/edit?usp=drivesdk
 export default forwardRef(function Radio(props: CheckboxProps, ref: Ref<HTMLInputElement>) {
   const {label, color = 'primary', style, ...rest} = props;
 

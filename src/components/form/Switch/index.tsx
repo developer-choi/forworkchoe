@@ -1,6 +1,7 @@
 import {ComponentPropsWithoutRef, forwardRef, Ref} from "react";
 import styles from "./index.module.scss";
 
+// https://www.daleseo.com/css-toggle-switch/
 export interface SwitchProps extends ComponentPropsWithoutRef<"input"> {
   label?: string;
 }

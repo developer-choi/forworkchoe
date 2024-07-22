@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import classNames from 'classnames';
 import styles from './index.module.scss';
-import CustomLink, {CustomLinkProps, LinkActiveMode} from '@/components/element/CustomLink';
+import CustomLink, {CustomLinkProps, LinkActiveMode} from '@/components/element/link/CustomLink';
 
 export type TabBarItem = Omit<CustomLinkProps, 'enableActive'>;
 

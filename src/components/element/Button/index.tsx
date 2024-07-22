@@ -2,7 +2,7 @@ import React, { ComponentPropsWithRef } from 'react';
 import classNames from 'classnames';
 import styles from './index.module.scss'
 import LoadingSpinner from '@/components/element/LoadingSpinner';
-import CustomLink, {CustomLinkProps} from '@/components/element/CustomLink';
+import CustomLink, {CustomLinkProps} from '@/components/element/link/CustomLink';
 
 export interface ButtonProps extends Pick<ComponentPropsWithRef<'button'>, UsedProps> {
   size?: ButtonSize; // default 'medium'

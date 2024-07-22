@@ -23,11 +23,11 @@
     
     // disabled + unchecked track
     &:disabled {
-      background: nth(color.$grayColors, 2);
+      background: nth(color.$grayColors, 6);
       
       // disabled + unchecked thumb
       &::before {
-        background: nth(color.$grayColors, 3);
+        background: nth(color.$grayColors, 7);
       }
     }
   }

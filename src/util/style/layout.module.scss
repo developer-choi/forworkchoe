@@ -1,0 +1,11 @@
+$layout: (
+  horizontalPadding: 16px
+);
+
+@mixin horizontalPaddingContainer {
+  padding-inline: map-get($layout, horizontalPadding);
+}
+
+.horizontalPaddingContainer {
+  @include horizontalPaddingContainer;
+}

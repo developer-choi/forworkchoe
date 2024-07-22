@@ -2,8 +2,14 @@
 
 $grayColors: (
   #333333, // nth($grayColors, 1);
-  #BDBDBD, // nth($grayColors, 2);
-  #F5F5F5, // nth($grayColors, 3);
+  #444444,
+  #646464,
+  #898989,
+  #bdbdbd, // nth($grayColors, 5);
+  #dbdbdb,
+  #ebebeb,
+  #f0f0f0,
+  #f5f5f5, // nth($grayColors, 9);
 );
 
 $stateColors: (

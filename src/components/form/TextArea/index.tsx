@@ -1,16 +1,17 @@
-import {ChangeEvent, ComponentPropsWithRef, forwardRef, Ref, useCallback, useState} from "react";
+import {ChangeEvent, ComponentPropsWithRef, forwardRef, Ref, useCallback, useState, KeyboardEvent} from "react";
 import styles from './index.module.scss';
 import {
   FormElementWrapper,
   FormElementWrapperProps
 } from "@/components/form/form-elements";
 import classNames from "classnames";
+import {isMatchKeyboardEvent, MatchKeyboardEvent} from '@/util/extend/event/keyboard';
 
 export interface TextAreaProps extends ComponentPropsWithRef<"textarea">, Omit<FormElementWrapperProps, "kind">{
   showCount?: boolean; // maxLength까지 같이 입력되야함.
 }
 
-export default forwardRef(function TextArea({label, error, style, className, maxLength, showCount, onChange, ...rest}: TextAreaProps, ref: Ref<HTMLTextAreaElement>) {
+export default forwardRef(function TextArea({label, error, style, className, maxLength, showCount, onChange, onKeyDown, ...rest}: TextAreaProps, ref: Ref<HTMLTextAreaElement>) {
   const [textCount, setTextCount] = useState('');
 
   const customChange = useCallback((event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -34,10 +35,22 @@ export default forwardRef(function TextArea({label, error, style, className, max
     onChange(event);
   }, [maxLength, onChange, showCount]);
 
+  const customOnKeyDown = useCallback((event: KeyboardEvent<HTMLTextAreaElement>) => {
+    onKeyDown?.(event);
+
+    if (isMatchKeyboardEvent(event, CTRL_ENTER_EVENT)) {
+      const formElement = (event.target as HTMLFormElement).closest('form');
+
+      if (formElement) {
+        formElement.requestSubmit();
+      }
+    }
+  }, [onKeyDown]);
+
   return (
     <FormElementWrapper style={style} className={className} label={label} error={error}>
       <div className={classNames(styles.innerContainer, {[styles.error]: error})}>
-        <textarea ref={ref} maxLength={maxLength} onChange={customChange} className={styles.textarea} {...rest}/>
+        <textarea ref={ref} maxLength={maxLength} onChange={customChange} className={styles.textarea} onKeyDown={customOnKeyDown} {...rest}/>
         {!textCount ? null : (
           <div className={styles.count}>{textCount}</div>
         )}
@@ -45,3 +58,8 @@ export default forwardRef(function TextArea({label, error, style, className, max
     </FormElementWrapper>
   )
 });
+
+const CTRL_ENTER_EVENT: MatchKeyboardEvent = {
+  key: 'Enter',
+  specialKeys: ['ctrlKey']
+};

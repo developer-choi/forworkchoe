@@ -1,5 +1,5 @@
 import '../util/style/reset.css';
-import '../util/style/globals.scss';
+import '../util/style/global.scss';
 import type {Metadata} from 'next';
 import {PropsWithChildren} from 'react';
 

@@ -5,7 +5,7 @@ import {
   FormElementWrapperProps
 } from "@/components/form/form-elements";
 import classNames from "classnames";
-import {isMatchKeyboardEvent, MatchKeyboardEvent} from '@/util/extend/event/keyboard';
+import {isMatchKeyboardEvent, KeyboardShortcut} from '@/util/extend/event/keyboard';
 
 export interface TextAreaProps extends ComponentPropsWithRef<"textarea">, Omit<FormElementWrapperProps, "kind">{
   showCount?: boolean; // maxLength까지 같이 입력되야함.
@@ -59,7 +59,7 @@ export default forwardRef(function TextArea({label, error, style, className, max
   )
 });
 
-const CTRL_ENTER_EVENT: MatchKeyboardEvent = {
+const CTRL_ENTER_EVENT: KeyboardShortcut = {
   key: 'Enter',
   specialKeys: ['ctrlKey']
 };

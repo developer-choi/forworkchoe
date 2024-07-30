@@ -86,6 +86,6 @@ function InputTester({type, ...rest}: TextFieldProps) {
       <PasswordInput {...rest} value={value} onChange={(event) => setValue(event.target.value)}/>
     );
   } else {
-    return <Input {...rest} value={value} onChange={(event) => setValue(event.target.value)}/>;
+    return <Input {...rest} value={value} onChange={(event) => setValue(event.target.value)} rightRender="Points"/>;
   }
 }

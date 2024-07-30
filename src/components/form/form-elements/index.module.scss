@@ -7,6 +7,10 @@ $formElement: (
   inputLineHeight: 20px // map-get($formElement, inputLineHeight); 인풋에 노출되는 아이콘의 높이값은 인풋의 line-height만큼만 커야함.
 );
 
+.container {
+  width: 100%;
+}
+
 .label {
   display: flex;
   align-items: center;

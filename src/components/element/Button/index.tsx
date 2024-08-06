@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithRef } from 'react';
+import React, {ComponentPropsWithRef, useCallback, MouseEvent} from 'react';
 import classNames from 'classnames';
 import styles from './index.module.scss'
 import LoadingSpinner from '@/components/element/LoadingSpinner';
@@ -14,13 +14,22 @@ export interface ButtonProps extends Pick<ComponentPropsWithRef<'button'>, UsedP
 }
 
 export default function Button(props: ButtonProps) {
-  const { children, className, type = 'button', loading, size = 'medium', variant = 'contained', color = 'primary', ...rest } = props;
+  const { children, className, type = 'button', loading, size = 'medium', variant = 'contained', color = 'primary', onClick, ...rest } = props;
   const _loading = typeof loading === "boolean" ? loading : false; // TODO 다양한 로딩 타입으로 계산
 
+  const customOnClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    if (_loading) {
+      return;
+    }
+
+    onClick?.(event);
+  }, [_loading, onClick]);
+  
   return (
     <button
       type={type}
       className={classNames(styles.button, {[styles.loading]: _loading}, styles[size], styles[color], styles[variant], className)}
+      onClick={customOnClick}
       {...rest}
     >
       {_loading ? <LoadingSpinner className="loading" square={LINE_HEIGHT_BY_SIZE[size]}/> : children}

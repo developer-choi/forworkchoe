@@ -13,6 +13,7 @@ export interface ButtonProps extends Pick<ComponentPropsWithRef<'button'>, UsedP
   };
 }
 
+// Doc : https://docs.google.com/document/d/1aEHPwWUlT8nLpzuJwogzQerYawVbWIk8WCMRaxleDaI/edit
 export default function Button(props: ButtonProps) {
   const { children, className, type = 'button', loading, size = 'medium', variant = 'contained', color = 'primary', onClick, ...rest } = props;
   const _loading = typeof loading === "boolean" ? loading : false; // TODO 다양한 로딩 타입으로 계산

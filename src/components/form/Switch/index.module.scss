@@ -37,6 +37,7 @@ $radius: 20px;
 
 .label {
   @include form.commonRadioCheckSwitchWrapper;
+  @include colorByState;
   
   // track
   > input[type="checkbox"] {
@@ -68,6 +69,4 @@ $radius: 20px;
       box-shadow: 1px 1px 1px 0 #33333340;
     }
   }
-  
-  @include colorByState;
 }

@@ -1,0 +1,16 @@
+.modal {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modalInnerContainer {
+  // 모달 중앙정렬
+  margin: auto;
+  
+  // 모달 기본 배경색 지정
+  background-color: white;
+  
+  // 모달의 세로높이가 뷰포트보다 큰 경우 전체높이 꽉채운 상태에서 스크롤 생기도록 함
+  overflow: auto;
+  max-height: 100%;
+}

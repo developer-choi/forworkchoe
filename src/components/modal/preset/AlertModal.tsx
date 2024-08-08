@@ -1,6 +1,4 @@
-import {
-  CenterAlignModalContainerProps, FullScreenModalContainer
-} from '@/components/modal/container';
+import {CenterAlignModalContainer, CenterAlignModalContainerProps} from '@/components/modal/container';
 import React from 'react';
 import {CloseModalCallback} from '@/util/extend/modal';
 import {DefaultModalHeader} from '@/components/modal/header';
@@ -15,12 +13,12 @@ export interface AlertModalProps extends CenterAlignModalContainerProps {
 
 export default function AlertModal({title, content, onClose, onConfirm, ...rest}: AlertModalProps) {
   return (
-    <FullScreenModalContainer onClose={onClose} {...rest}>
+    <CenterAlignModalContainer onClose={onClose} {...rest}>
       <DefaultModalHeader>{title}</DefaultModalHeader>
       <DefaultModalBody>
         {content}
       </DefaultModalBody>
       <OneButtonModalFooter buttonProps={{onClick: !onConfirm ? onClose : () => onConfirm(onClose), children: 'Confirm'}}/>
-    </FullScreenModalContainer>
+    </CenterAlignModalContainer>
   );
 }

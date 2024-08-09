@@ -11,6 +11,10 @@ $modalPadding: 16px;
   @include dimBackdrop;
   display: flex;
   padding: $minPadding;
+  
+  &:not(.open) {
+    display: none;
+  }
 }
 
 .centerAlignInner {
@@ -36,15 +40,40 @@ $modalPadding: 16px;
 .bottomSheetContainer {
   @include dimBackdrop;
   display: flex;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  
+  > .bottomSheetInner {
+    position: fixed;
+    bottom: -100%;
+    transition: bottom 0.4s;
+    background-color: transparent;
+  }
+  
+  &.open {
+    pointer-events: auto;
+    opacity: 100;
+    
+    > .bottomSheetInner {
+      bottom: 0;
+      background-color: white;
+    }
+  }
 }
 
 .bottomSheetInner {
   width: 100%;
-  margin-top: auto;
   
   // 반응형
   max-height: 70%;
   overflow: auto;
+}
+
+.fullScreenContainer {
+  &:not(.open) {
+    display: none;
+  }
 }
 
 .fullScreenInner {

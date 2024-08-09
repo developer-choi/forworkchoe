@@ -1,0 +1,15 @@
+@use 'container.module';
+
+.body {
+  display: block;
+  white-space: pre-line;
+  word-break: break-word; // 이거 안하면 한글자 무한입력할 때 줄내림안됨
+  
+  max-height: 70dvh;
+  overflow: auto;
+  
+  $headerFooterMargin: 16px;
+  padding-inline: container.$modalPadding;
+  margin-block: $headerFooterMargin;
+  line-height: 20px; // 이 값이 작아지면 왜 모달 바디가 높이가 작은데도 스크롤이 계속 뜨는지 모르겠슴...
+}

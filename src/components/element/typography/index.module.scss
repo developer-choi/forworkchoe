@@ -19,6 +19,10 @@
   @include fontStyle(20px, 32px);
 }
 
+@mixin h4 {
+  @include fontStyle(18px, 24px);
+}
+
 @mixin body1 {
   @include fontStyle(16px, 24px);
 }
@@ -41,6 +45,10 @@
 
 .h3 {
   @include h3;
+}
+
+.h4 {
+  @include h4;
 }
 
 .body1 {

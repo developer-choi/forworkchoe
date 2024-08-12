@@ -33,20 +33,11 @@ export interface ModalState<P extends EssentialModalProps> {
 export function useOpenModal() {
   const openModal = useContext(ModalContext).openModal as <P extends EssentialModalProps>(payload: ModalPayload<P>) => void;
 
-  const openAlertModal = useCallback((props: string | WithoutEssentialModalProp<AlertModalProps>) => {
-    if (typeof props == 'string') {
-      openModal({
-        Component: AlertModal,
-        props: {
-          content: props
-        }
-      });
-    } else {
-      openModal({
-        Component: AlertModal,
-        props
-      })
-    }
+  const openAlertModal = useCallback((props: WithoutEssentialModalProp<AlertModalProps>) => {
+    openModal({
+      Component: AlertModal,
+      props
+    })
   }, [openModal]);
 
   return {

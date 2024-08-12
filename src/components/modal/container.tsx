@@ -1,77 +1,21 @@
 'use client';
 
-import {
-  ComponentPropsWithoutRef,
-  MouseEvent,
-  MouseEventHandler,
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useRef
-} from 'react';
+import {ComponentPropsWithoutRef, MouseEvent, useCallback, useEffect, useRef} from 'react';
 import styles from './container.module.scss';
 import classNames from 'classnames';
 import {createPortal} from 'react-dom';
 import {EssentialModalProps} from '@/util/extend/modal';
 
-export interface CenterAlignModalContainerProps extends ModalContainerProps {
-  size?: 'large' | 'medium';
-}
-
-// TODO 가만보니 컨테이너 3종 전부 HTML 구조 같고 className만 다르게 쓰고있으니 통합 가능해보임!
-export function CenterAlignModalContainer({className, size = 'medium', ...rest}: CenterAlignModalContainerProps) {
-  const onClickModalContent = useCallback((event: MouseEvent<HTMLDivElement>) => {
-    event.stopPropagation();
-  }, []);
-
-  return (
-    <RootModalContainer
-      containerClassName={styles.centerAlignContainer}
-      className={classNames(styles.centerAlignInner, styles[size], className)}
-      onClickBackdrop={onClickModalContent}
-      {...rest}
-    />
-  );
-}
-
-export function BottomSheetModalContainer({className, ...rest}: ModalContainerProps) {
-  const onClickModalContent = useCallback((event: MouseEvent<HTMLDivElement>) => {
-    event.stopPropagation();
-  }, []);
-
-  return (
-    <RootModalContainer
-      containerClassName={styles.bottomSheetContainer}
-      className={classNames(styles.bottomSheetInner, className)}
-      onClickBackdrop={onClickModalContent}
-      {...rest}
-    />
-  );
-}
-
-export function FullScreenModalContainer(props: ModalContainerProps) {
-  return (
-    <RootModalContainer className={styles.fullScreenInner} {...props}/>
-  );
-}
-
-/*************************************************************************************************************
- * Non Export
- *************************************************************************************************************/
-interface ModalContainerProps extends EssentialModalProps, Omit<ComponentPropsWithoutRef<'div'>, 'onClick'> {
+export interface ModalContainerProps extends EssentialModalProps, Omit<ComponentPropsWithoutRef<'div'>, 'onClick'> {
   easilyClose?: boolean; // backdrop / esc 눌러서 모달 닫게 해주는 기능, default false
+  type: 'centerAlign' | 'bottomSheet' | 'fullScreen';
+  size?: 'large' | 'medium'; // center-align 모달에서만 사용함
 }
 
-interface RootModalContainerProps extends PropsWithChildren<ModalContainerProps> {
-  containerClassName?: string;
-  onClickBackdrop?: MouseEventHandler<HTMLDivElement>;
-}
+// Alert, Confirm 등 모달 확장할 때 이 타입을 확장하기
+export type ComposedModalProps = Omit<ModalContainerProps, 'type' | 'size'>;
 
-/**
- * Modal은 반드시 Client Component에서만 사용할 수 있습니다.
- * 센터정렬모달 / 바텀시트모달 / 풀스크린모달의 공통 기능을 구현합니다.
- */
-function RootModalContainer({className, easilyClose, onClose, containerClassName, onClickBackdrop, ...rest}: RootModalContainerProps) {
+export function ModalContainer({className, size = 'medium', type, easilyClose, onClose, ...rest}: ModalContainerProps) {
   const modalRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -103,10 +47,18 @@ function RootModalContainer({className, easilyClose, onClose, containerClassName
     };
   }, []);
 
+  const onClickBackdrop = useCallback((event: MouseEvent<HTMLDivElement>) => {
+    if (type === 'fullScreen') {
+      return;
+    }
+
+    event.stopPropagation();
+  }, [type]);
+
   // https://docs.google.com/document/d/16-Z3RmslEMvhfwOMmePYTRg4HkUjKjWSxxF2SB7NGGU/edit#heading=h.dpm2y2x8qp1i
   return createPortal((
-    <dialog ref={modalRef} className={containerClassName} onClick={easilyClose ? onClose : undefined}>
-      <div className={classNames(styles.rootModalInner, className)} onClick={onClickBackdrop} {...rest} />
+    <dialog ref={modalRef} className={styles[type + 'Container']} onClick={easilyClose ? onClose : undefined}>
+      <div className={classNames(styles.rootModalInner, styles[type + 'Inner'], styles[size], className)} onClick={onClickBackdrop} {...rest} />
     </dialog>
   ), document.body);
 }

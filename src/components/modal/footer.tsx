@@ -1,30 +1,93 @@
 import styles from './footer.module.scss';
 import classNames from 'classnames';
-import {ComponentPropsWithoutRef} from 'react';
+import React, {ComponentPropsWithoutRef, ReactNode} from 'react';
 import Button, {ButtonProps} from '@/components/element/Button';
 
-// 일단 footer 태그의 전체 props를 확장함으로써 혹시모를 커스텀 대비
+export type ModalButtonProps = Pick<ButtonProps, 'onClick' | 'type' | 'className' | 'style' | 'children'>;
+
 export interface OneButtonModalFooterProps extends Omit<ModalFooterProps, 'children'> {
-  buttonProps?: Pick<ButtonProps, 'children' | 'onClick' | 'type' | 'className' | 'style'>;
+  /**
+   * 디자인 시스템에서 허용하는 커스텀은, 버튼 텍스트와 클릭 동작 2개입니다.
+   * 버튼크기, 버튼사이즈 등은 수정이 허용되지않습니다.
+   */
+  buttonText: ReactNode;
+  onClick: ButtonProps['onClick'];
+
+  /**
+   * 하지만 예외케이스가 존재하기때문에, 푸터에서는 수정은 허용하되
+   * 푸터를 호출하는 모달 컴포넌트에서는 예외모달이 아니고서야 커스텀 스타일값을 전달하지않는 방향으로 대응하겠습니다.
+   */
+  customProps?: ModalButtonProps;
 }
 
 /**
- * 타이틀만 나오거나,
- * 타이틀 + X버튼 나오거나.
+ * 디자인 시스템에서 허용하는 커스텀은, 버튼 텍스트와 클릭 동작 2개입니다.
+ * 버튼크기, 버튼사이즈 등은 수정이 허용되지않습니다.
+ * 하지만 예외케이스가 존재하기때문에, 푸터에서는 수정은 허용하되
+ * 푸터를 호출하는 모달 컴포넌트에서는 예외모달이 아니고서야 커스텀 스타일값을 전달하지않는 방향으로 대응하겠습니다.
  */
-export function OneButtonModalFooter({className, buttonProps, ...rest}: OneButtonModalFooterProps) {
+export function OneButtonModalFooter({className, style, onClick, buttonText, customProps}: OneButtonModalFooterProps) {
   return (
-    <ModalFooter className={classNames(styles.oneButtonFooter, className)} {...rest}>
-      <Button {...buttonProps}/>
+    <ModalFooter style={style} className={classNames(styles.oneButtonFooter, className)}>
+      <Button
+        size="large"
+        onClick={onClick}
+        type={customProps?.type}
+        className={customProps?.className}
+        style={customProps?.style}
+      >
+        {customProps?.children ?? buttonText}
+      </Button>
     </ModalFooter>
   );
 }
 
-type ModalFooterProps = ComponentPropsWithoutRef<'footer'>;
+export interface TwoButtonsModalFooter extends Omit<ModalFooterProps, 'children'> {
+  /**
+   * 위에있는 OneButton 주석 참고 부탁드립니다.
+   */
+  left: {
+    buttonText: ReactNode;
+    onClick: ButtonProps['onClick'];
+    customProps?: ModalButtonProps;
+  };
+
+  right: {
+    buttonText: ReactNode;
+    onClick: ButtonProps['onClick'];
+    customProps?: ModalButtonProps;
+  };
+}
+
+export function TwoButtonsModalFooter({style, className, left, right}: TwoButtonsModalFooter) {
+  return (
+    <ModalFooter style={style} className={classNames(styles.twoButtonsFooter, className)}>
+      <Button
+        size="large"
+        variant="outlined"
+        onClick={left.onClick}
+        type={left.customProps?.type}
+        className={left.customProps?.className}
+        style={left.customProps?.style}
+      >
+        {left.customProps?.children ?? left.buttonText}
+      </Button>
+      <Button
+        size="large"
+        onClick={right.onClick}
+        type={right.customProps?.type}
+        className={right.customProps?.className}
+        style={right.customProps?.style}
+      >
+        {right.customProps?.children ?? right.buttonText}
+      </Button>
+    </ModalFooter>
+  );
+}
+
+type ModalFooterProps = Pick<ComponentPropsWithoutRef<'footer'>, 'className' | 'style' | 'children'>;
 
 // 추후 어떤 푸터가 추가 되더라도, 푸터 껍데기 (하단간격, 좌우간격)는 스타일이 변하지않음.
 function ModalFooter({className, ...rest}: ModalFooterProps) {
-  return (
-    <footer className={classNames(styles.oneButtonFooter, className)} {...rest}/>
-  )
+  return <footer className={classNames(styles.oneButtonFooter, className)} {...rest} />;
 }

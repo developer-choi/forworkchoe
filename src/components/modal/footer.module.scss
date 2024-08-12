@@ -13,3 +13,8 @@
     width: 100%; // One Button 모달에서는 기본적으로 버튼 길이가 최대임
   }
 }
+
+.twoButtonsFooter {
+  display: flex;
+  gap: 10px;
+}

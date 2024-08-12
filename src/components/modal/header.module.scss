@@ -1,0 +1,12 @@
+@use 'container.module';
+
+.defaultHeader {
+  font-size: 20px;
+  font-weight: bold;
+  
+  padding: {
+    top: container.$modalPadding;
+    left: container.$modalPadding;
+    right: container.$modalPadding;
+  };
+}

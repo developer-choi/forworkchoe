@@ -65,10 +65,6 @@ button, input, textarea {
   /* 브라우저가 해당 태그에 직접 기본스타일 지정하고있어서, body로 부터 기본값 상속받기위해 작성함. */
   font-size: inherit;
   color: inherit;
-}
-
-/* 이 2개는 기본 폰트가 따로 적용되어있어서 이렇게 해야 body로 부터 커스텀 폰트 상속받음. */
-input, textarea {
   font-family: inherit;
 }
 

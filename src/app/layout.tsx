@@ -2,6 +2,12 @@ import '../util/style/reset.css';
 import '../util/style/global.scss';
 import type {Metadata} from 'next';
 import {PropsWithChildren} from 'react';
+import {Noto_Sans} from 'next/font/google'
+
+const font = Noto_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700']
+});
 
 export const metadata: Metadata = {
   title: 'Markup Playground',
@@ -11,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: PropsWithChildren) {
   return (
     <html lang="en">
-    <body>
+    <body className={font.className}>
     {children}
     </body>
     </html>

@@ -33,7 +33,7 @@ export default function Page() {
   const {type, title, content} = watch();
   const result = {
     title: 'title '.repeat(title === 'short' ? 1 : 13),
-    content: 'content '.repeat(content === 'short' ? 20 : 600),
+    content: 'content'.repeat(content === 'short' ? 20 : 1200),
   };
 
   return (

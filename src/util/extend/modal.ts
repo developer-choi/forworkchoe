@@ -29,7 +29,7 @@ export interface ModalState<P extends EssentialModalProps> {
   openModal: (param: ModalPayload<P>) => void;
 }
 
-
+// 이 파일은 꼭 ModalProvider 같은 레이아웃 파일과 분리되야함. 안그럼 Modal 컴포넌트들의 css가 두번씩 import됨.
 export function useOpenModal() {
   const openModal = useContext(ModalContext).openModal as <P extends EssentialModalProps>(payload: ModalPayload<P>) => void;
 

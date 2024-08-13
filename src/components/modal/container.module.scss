@@ -60,21 +60,20 @@ $modalPadding: 16px;
 }
 
 .bottomSheetContainer {
-  @include dimBackdrop;
   display: flex;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s;
+  background-color: transparent;
+  transition: background-color 4s;
   
   > .bottomSheetInner {
     position: fixed;
     bottom: -100%;
-    transition: bottom 0.4s;
+    transition: bottom 4s;
   }
   
   &.open {
     pointer-events: auto;
-    opacity: 1;
+    @include dimBackdrop;
     
     > .bottomSheetInner {
       bottom: 0;

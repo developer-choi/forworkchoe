@@ -70,12 +70,11 @@ $modalPadding: 16px;
     position: fixed;
     bottom: -100%;
     transition: bottom 0.4s;
-    background-color: transparent;
   }
   
   &.open {
     pointer-events: auto;
-    opacity: 100;
+    opacity: 1;
     
     > .bottomSheetInner {
       bottom: 0;

@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useCallback} from 'react';
-import AlertModal from '@/components/modal/preset/AlertModal';
+import AlertModal from '@/components/modal/AlertModal';
 import Button from '@/components/element/Button';
 import {useOpenModal} from '@/util/extend/modal';
 
@@ -15,7 +15,7 @@ export default function Page() {
       Component: AlertModal,
       props: {
         title: '123',
-        content: 'abc'.repeat(1600)
+        content: 'abc'
       }
     });
   }, [openModal]);

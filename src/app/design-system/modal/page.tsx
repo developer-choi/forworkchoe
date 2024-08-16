@@ -38,7 +38,6 @@ export default function Page() {
 
   return (
     <div>
-      <div style={{height: 1200, background: 'gray'}}/>
       <form>
         <RadioGroup>
           <Radio label="CenterAlign" value="centerAlign" {...register('type')}/>
@@ -56,7 +55,7 @@ export default function Page() {
       </form>
       <Button onClick={openModal}>Open modal</Button>
       <ModalContainer type={type} onClose={closeModal} open={open}>
-        <DefaultModalHeader onClose={closeModal}>{result.title}</DefaultModalHeader>
+        <DefaultModalHeader>{result.title}</DefaultModalHeader>
         <DefaultModalBody>
           {result.content}
         </DefaultModalBody>

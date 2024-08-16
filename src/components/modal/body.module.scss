@@ -2,27 +2,20 @@
 @use "/src/util/style/color";
 @use "/src/components/element/typography/index.module" as typography;
 
-$scrollbarHandlerWidth: 4px;
-$modalPadding: container.$modalPadding;
-
 @mixin customScrollbar {
   /* width */
   &::-webkit-scrollbar {
-    width: $modalPadding;
+    width: container.$modalPadding;
   }
   
   // 모바일에서는 모바일 웹브라우저의 기본스크롤 사용
   @supports (-webkit-overflow-scrolling: touch) {
-    padding-right: $modalPadding;
+    padding-right: container.$modalPadding;
   }
   
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    border: {
-      width: calc(calc($modalPadding - $scrollbarHandlerWidth) / 2);
-      style: solid;
-      color: transparent;
-    };
+    border: 6px solid transparent;
     background-clip: padding-box;
     background-color: transparent;
     border-radius: 20px;
@@ -35,9 +28,10 @@ $modalPadding: container.$modalPadding;
 
 .bodyPaddingContainer {
   flex-grow: 1;
+  display: block;
   
   $headerFooterMargin: 16px;
-  padding-left: $modalPadding;
+  padding-left: container.$modalPadding;
   padding-block: $headerFooterMargin;
 }
 
@@ -45,13 +39,7 @@ $modalPadding: container.$modalPadding;
   @include typography.body1;
   @include customScrollbar;
   
-  display: flex; // 이미지같은거 노출될 때 간격 모두 없애기 위함
-  width: 100%;
+  display: block;
   white-space: pre-line;
   word-break: break-word; // 이거 안하면 한글자 무한입력할 때 줄내림안됨
-  
-  > img {
-    width: 100%;
-    height: auto;
-  }
 }

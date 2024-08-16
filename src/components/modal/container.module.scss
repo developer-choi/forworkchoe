@@ -1,5 +1,5 @@
 @mixin dimBackdrop {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 // 이걸 특정 innerContainer에서 include하면 body만 스크롤이 생김
@@ -8,11 +8,7 @@
     overflow: hidden;
     
     > :global(.bodyScrollContainer) {
-      /**
-       * 항상 보이게 만들어서 스크롤이 안보이는 케이스에서도 우측여백으로 잡아놓은 스크롤트랙이 패딩처럼 보이게
-       * 이거를 overflow: scroll;로 했다간 수평스크롤도 같이 보여서 난감해짐.
-       */
-      overflow-y: scroll;
+      overflow-y: scroll;; // 항상 보이게 만들어서 스크롤이 안보이는 케이스에서도 우측여백으로 잡아놓은 스크롤트랙이 패딩처럼 보이게
       max-height: 100%;
     }
   }
@@ -21,8 +17,8 @@
 // 이걸 특정 innerContainer에서 include하면 body만 스크롤이 생김
 @mixin limitedBodyScroll {
   :global(.bodyScrollContainer) {
-    overflow-y: scroll;
     max-height: 50dvh;
+    overflow-y: scroll;; // 항상 보이게 만들어서 스크롤이 안보이는 케이스에서도 우측여백으로 잡아놓은 스크롤트랙이 패딩처럼 보이게
   }
 }
 

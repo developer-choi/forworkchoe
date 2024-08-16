@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="root">
+  <div id="box1">
+<!--
+박스2의 높이가 분명 height 100%를 줬는데도 늘어나지않음.
+
+챗 지피티한테 물어보니..
+이 코드에서 문제는 #box2가 부모 요소인 #box1의 높이를 100%로 상속받지 못하는 것입니다.
+이는 부모 요소의 높이가 명확하게 정의되어 있지 않아서 발생합니다.
+라고 하였음.
+
+그래서 box1의 min-height 100vh 삭제했더니 box2 잘늘어남
+
+물론 #root의 높이를 지정안한것은 맞음.
+하지만 root 밑에있는 box1의 높이가 min 100vh면
+어쨌든 box2는 부모만큼 100vh가 늘어나야하는데 안늘어난건 버그가 맞음.
+
+결론만 기억해본다면, 난 걍 앞으로 min-height를 레이아웃잡을 때 안쓰고
+html, body, #__next 3개 height 100% 박고 시작할래
+ -->
+    <div id="box2"></div>
+  </div>
+</div>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  #box1 {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+  }
+  
+  #box2 {
+    height: 100%;
+    background: red;
+  }
+</style>
+</body>
+</html>

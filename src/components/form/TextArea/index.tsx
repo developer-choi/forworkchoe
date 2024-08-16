@@ -11,7 +11,7 @@ export interface TextAreaProps extends ComponentPropsWithRef<"textarea">, Omit<F
   showCount?: boolean; // maxLength까지 같이 입력되야함.
 }
 
-export default forwardRef(function TextArea({label, error, style, className, maxLength, showCount, onChange, onKeyDown, rows = 4, ...rest}: TextAreaProps, ref: Ref<HTMLTextAreaElement>) {
+export default forwardRef(function TextArea({label, error, style, className, maxLength, showCount, onChange, onKeyDown, ...rest}: TextAreaProps, ref: Ref<HTMLTextAreaElement>) {
   const [textCount, setTextCount] = useState('');
 
   const customChange = useCallback((event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -50,7 +50,7 @@ export default forwardRef(function TextArea({label, error, style, className, max
   return (
     <FormElementWrapper style={style} className={className} label={label} error={error}>
       <div className={classNames(styles.innerContainer, {[styles.error]: error})}>
-        <textarea ref={ref} maxLength={maxLength} onChange={customChange} className={styles.textarea} onKeyDown={customOnKeyDown} rows={rows} {...rest}/>
+        <textarea ref={ref} maxLength={maxLength} onChange={customChange} className={styles.textarea} onKeyDown={customOnKeyDown} {...rest}/>
         {!textCount ? null : (
           <div className={styles.count}>{textCount}</div>
         )}

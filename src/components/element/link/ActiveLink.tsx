@@ -37,9 +37,13 @@ export default function ActiveLink(props: ActiveLinkProps) {
   );
 }
 
+function InnerLink({ className, href, enableActive, ...rest }: ActiveLinkProps) {
+  const activeClass = useCheckHrefIsActive(href, enableActive);
+  return <CustomLink href={href} className={classNames(className, activeClass)} {...rest} />;
+}
+
 /**
  * href는 "?query=value"와 "/current/path?query=value" 모두 지원함.
- * 이거 export하면 가끔 쓸일 있음 (/mobile-footer 하위 페이지 참고)
  */
 export function useCheckHrefIsActive(href: LinkProps['href'], enableActive: ActiveLinkProps['enableActive']): string | undefined {
   const currentPathname = usePathname();
@@ -60,14 +64,6 @@ export function useCheckHrefIsActive(href: LinkProps['href'], enableActive: Acti
   } else {
     return undefined;
   }
-}
-
-/*************************************************************************************************************
- * Non Export
- *************************************************************************************************************/
-function InnerLink({ className, href, enableActive, ...rest }: ActiveLinkProps) {
-  const activeClass = useCheckHrefIsActive(href, enableActive);
-  return <CustomLink href={href} className={classNames(className, activeClass)} {...rest} />;
 }
 
 function convertHrefToString(href: LinkProps['href']) {

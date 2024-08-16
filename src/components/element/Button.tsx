@@ -19,12 +19,12 @@ export interface ButtonProps extends Pick<ComponentPropsWithRef<'button'>, UsedP
 }
 
 export default function Button(props: ButtonProps) {
-  const {loading, children, type = 'button', ...rest} = props;
+  const {loading, children, ...rest} = props;
   const _loading = typeof loading === "boolean" ? loading : false; // TODO 다양한 로딩 타입으로 계산
   const size = BUTTON_SIZE[props.size ?? 'medium'];
 
   return (
-    <StyledButton loading={_loading} type={type} {...rest}>
+    <StyledButton loading={_loading} {...rest}>
       {/* 로딩의 크기는 가로세로 모두 line-height만큼만 커져야 전체 버튼사이즈의 변화가 안생김. */}
       {_loading ? <LoadingSpinner className="loading" square={Number(size.lineHeight.replace('px', ''))}/> : children}
     </StyledButton>
@@ -117,7 +117,7 @@ export const ButtonStyleLink = styled(CustomLink).withConfig({
 `;
 
 // 이거 안하면 버튼 컴포넌트 사용할 때 가능한 props 전체 수백개가 뜨기때문에, 사용하는 props만 설정
-type UsedProps = "style" | "className" | "onClick" | 'disabled' | 'children' | 'type';
+type UsedProps = "style" | "className" | "onClick" | 'disabled' | 'children';
 export type ButtonSize = "medium" | "large";
 export type ButtonVariant = "fill" | "outline";
 export type ButtonState = "disabled" | "loading" | "default";

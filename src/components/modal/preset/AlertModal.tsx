@@ -13,7 +13,7 @@ export interface AlertModalProps extends ComposedModalProps {
 
 export default function AlertModal({title, content, onClose, onConfirm, ...rest}: AlertModalProps) {
   return (
-    <ModalContainer type="centerAlign" onClose={onClose} {...rest}>
+    <ModalContainer type="bottomSheet" onClose={onClose} {...rest}>
       <DefaultModalHeader>{title}</DefaultModalHeader>
       <DefaultModalBody>
         {content}

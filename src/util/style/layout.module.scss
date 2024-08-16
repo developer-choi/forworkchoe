@@ -1,9 +1,5 @@
 $layout: (
-  horizontalPadding: 16px,
-  mobileBottomNavHeight: 60px,
-  large: 1200px,
-  medium: 800px,
-  small: 588px,
+  horizontalPadding: 16px
 );
 
 @mixin horizontalPaddingContainer {
@@ -12,10 +8,4 @@ $layout: (
 
 .horizontalPaddingContainer {
   @include horizontalPaddingContainer;
-}
-
-.mobilePageContent {
-  width: 100%;
-  height: 100%;
-  margin-bottom: map-get($layout, mobileBottomNavHeight);
 }

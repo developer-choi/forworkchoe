@@ -16,7 +16,7 @@ export default function Page({ params }: ServerComponentProps) {
 
   return (
     <main className={pageContent}>
-      <TabBar widthMode="equal-rate" activeMode="startsWith" linkList={tabBarLinkList} />
+      <TabBar widthMode="equal-rate" activeMode="path" linkList={tabBarLinkList} />
       {articleList.length > 0 && (
         <div className={styles.articleListWrap}>
           {articleList.map(({ id, title, date, haveRed, important }) => (

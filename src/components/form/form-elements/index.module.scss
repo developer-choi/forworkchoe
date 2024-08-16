@@ -61,7 +61,7 @@ $formElement: (
  * ==> 이 폼 요소들의 아래 스타일은 반드시 똑같이 가야해서 이렇게 별도 분리함.
  */
 @mixin commonFormElementWrapper {
-  padding: 9px 7px; // 테두리와 그 안에 실제 폼요소태그 사이 패딩, 버튼들 중에 이 높아와 같은 버튼이 있어야함.
+  padding: 8px; // 테두리와 그 안에 실제 폼요소태그 사이 패딩
   
   border: 1px solid lightgray; // Priority 4. default
   border-radius: 4px; // Shape

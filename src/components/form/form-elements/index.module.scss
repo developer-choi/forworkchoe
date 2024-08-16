@@ -72,6 +72,5 @@ $formElement: (
   :disabled, // 이거 안하면, 겉에 테두리 안감싸는 폼 요소의 경우, :has에 안걸려서 border-color가 disabled 케이스에서 동작안함.
   &:has(*:disabled) {
     border-color: map-get($stateColors, disabled); // Priority 1. disabled
-    cursor: not-allowed; // 테두리 영역 안의 전체가 이 커서로 나와야함.
   }
 }

@@ -1,6 +1,6 @@
 import {FormElementWrapper, FormElementWrapperProps} from '@/components/form/form-elements';
 import classNames from 'classnames';
-import {ComponentPropsWithRef, forwardRef, MouseEvent, ReactNode, Ref, useCallback} from 'react';
+import {ComponentPropsWithRef, forwardRef, ReactNode, Ref} from 'react';
 import styles from './index.module.scss';
 
 export interface InputProps extends ComponentPropsWithRef<"input">, Omit<FormElementWrapperProps, "kind"> {
@@ -8,21 +8,12 @@ export interface InputProps extends ComponentPropsWithRef<"input">, Omit<FormEle
   hiddenErrorMessage?: boolean; // 에러테두리는 표시하고싶은데 에러메시지는 미노출하고싶은 경우 전달 (ex: 주소폼처럼 여러개의 <Input이 셋트로 나오는 경우)
 }
 
-export default forwardRef(function Input({label, error, rightRender, style, className, hiddenErrorMessage, disabled, ...rest}: InputProps, ref: Ref<HTMLInputElement>) {
-  /**
-   * disabled일 때는, 인풋을 포함해서 테두리영역 안에있는 아이콘까지 전부다 클릭했을 때 반응이 없어야함.
-   */
-  const onClickCapture = useCallback((event: MouseEvent<HTMLInputElement>) => {
-    if (disabled) {
-      event.stopPropagation();
-    }
-  }, [disabled]);
-
+export default forwardRef(function Input({label, error, rightRender, style, className, hiddenErrorMessage, ...rest}: InputProps, ref: Ref<HTMLInputElement>) {
   return (
     <FormElementWrapper style={style} className={className} label={label} error={hiddenErrorMessage ? undefined : error}>
       {/* <Input은 완전 커스텀하려면 이렇게 div 한번 더 (총 2번) 감싸는게 맞음. 아이콘까지 잘 노출시키면서, 최대치로 입력했을 때 아이콘 안가리게 해야해서. */}
-      <div className={classNames(styles.innerContainer, {[styles.error]: error})} onClickCapture={onClickCapture}>
-        <input ref={ref} className={styles.input} disabled={disabled} {...rest} />
+      <div className={classNames(styles.innerContainer, {[styles.error]: error})}>
+        <input ref={ref} className={styles.input} {...rest} />
         {rightRender}
       </div>
     </FormElementWrapper>

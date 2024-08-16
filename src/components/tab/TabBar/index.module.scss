@@ -1,6 +1,6 @@
-@use '/src/util/style/color';
-@use '/src/util/style/util';
-@use '/src/util/style/layout.module';
+@use '/src/util/style/color' as color;
+@use '/src/util/style/util' as util;
+@use '/src/util/style/layout.module' as layout;
 
 .container {
   display: flex;

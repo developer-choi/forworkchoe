@@ -1,5 +1,5 @@
 @use "/src/components/form/form-elements/index.module" as form;
-@use "/src/util/style/color";
+@use "/src/util/style/color" as color;
 
 @mixin colorByState {
   // default track

@@ -1,4 +1,4 @@
-@use "/src/util/style/color";
+@use "/src/util/style/color" as color;
 
 $formElement: (
   labelMarginTop: 8px, // map-get($formElement, labelMarginTop); 모든 디자인시스템상 폼 요소는 라벨과 폼요소 사이 상하 간격이 같아야함.

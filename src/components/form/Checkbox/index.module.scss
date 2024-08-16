@@ -1,6 +1,6 @@
 @use "/src/components/form/form-elements/index.module" as form;
-@use "/src/util/style/color";
-@use "/src/util/style/util";
+@use "/src/util/style/color" as color;
+@use "/src/util/style/util" as util;
 
 // @param $color primary / secondary
 @mixin iconColor($color) {

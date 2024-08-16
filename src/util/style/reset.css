@@ -80,6 +80,10 @@ button, input:disabled, textarea:disabled {
   background: transparent;
 }
 
+textarea {
+  resize: none;
+}
+
 /* input type number 화살표 지우기 */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -91,15 +95,6 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
-}
-
-/* 이렇게 안하면, 더이상 줄어들지않는 최소길이 (약 150px쯤)가 있어서 작은 컨테이너에 인풋이 들어갔을 때 인풋이 뚫고나오는 문제가 있음. */
-input {
-  min-width: 0;
-}
-
-textarea {
-  resize: none;
 }
 
 /*************************************************************************************************************

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import React from 'react';
 import TabBar, {TabBarItem} from '@/components/tab/TabBar';
 import {ServerComponentProps} from '@/type/declaration/next';
-import CustomLink from '@/components/element/link/CustomLink';
+import CustomLink from '@/components/element/CustomLink';
 
 /**
  * URL: http://localhost:3000/design-system/tab/notice

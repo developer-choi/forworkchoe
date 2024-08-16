@@ -7,7 +7,6 @@
 }
 
 @mixin textOverflowEllipsis {
-  display: block; // 이거 안하면 ... 표기안됨
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

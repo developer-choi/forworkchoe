@@ -1,45 +1,13 @@
-@use "container.module";
-@use "/src/util/style/color";
-@use "/src/components/element/typography/index.module" as typography;
+@use 'container.module';
 
-@mixin customScrollbar {
-  /* width */
-  &::-webkit-scrollbar {
-    width: container.$modalPadding;
-  }
-  
-  // 모바일에서는 모바일 웹브라우저의 기본스크롤 사용
-  @supports (-webkit-overflow-scrolling: touch) {
-    padding-right: container.$modalPadding;
-  }
-  
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    border: 6px solid transparent;
-    background-clip: padding-box;
-    background-color: transparent;
-    border-radius: 20px;
-  }
-  
-  &:hover::-webkit-scrollbar-thumb {
-    background-color: nth(color.$grayColors, 6);
-  }
-}
-
-.bodyPaddingContainer {
+.body {
   flex-grow: 1;
-  display: block;
-  
-  $headerFooterMargin: 16px;
-  padding-left: container.$modalPadding;
-  padding-block: $headerFooterMargin;
-}
-
-.bodyScrollContainer {
-  @include typography.body1;
-  @include customScrollbar;
   
   display: block;
   white-space: pre-line;
   word-break: break-word; // 이거 안하면 한글자 무한입력할 때 줄내림안됨
+  
+  $headerFooterMargin: 16px;
+  padding-inline: container.$modalPadding;
+  padding-block: $headerFooterMargin;
 }

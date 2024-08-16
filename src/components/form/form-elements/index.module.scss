@@ -64,10 +64,6 @@ $formElement: (
   
   &:focus-within {
     border-color: map-get(color.$brandColors, primary); // Priority 3. focus (brand color)
-    
-    input, textarea {
-      outline: none;
-    }
   }
   
   &.error {

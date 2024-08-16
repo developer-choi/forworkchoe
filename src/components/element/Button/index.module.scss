@@ -46,10 +46,11 @@
     style: solid;
     radius: 4px;
   }
-  @each $size in large, medium {
-    &.#{$size} {
-      @include textByButtonSize($size);
-    }
+  &.large {
+    @include textByButtonSize(large);
+  }
+  &.medium {
+    @include textByButtonSize(medium);
   }
 }
 

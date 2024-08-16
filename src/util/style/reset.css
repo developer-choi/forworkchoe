@@ -107,11 +107,3 @@ a {
   text-decoration: none;
   color: inherit; /* 이거 안하면 링크 방문여부에 따른 그 컬러 나옴 */
 }
-
-/* Modal, Non Modal 공통 reset.css */
-dialog {
-  color: inherit;
-  border: none;
-  padding: 0;
-  overflow: visible;
-}

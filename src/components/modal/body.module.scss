@@ -1,13 +1,11 @@
 @use 'container.module';
 
 .body {
-  flex-grow: 1;
-  
   display: block;
   white-space: pre-line;
   word-break: break-word; // 이거 안하면 한글자 무한입력할 때 줄내림안됨
   
   $headerFooterMargin: 16px;
   padding-inline: container.$modalPadding;
-  padding-block: $headerFooterMargin;
+  margin-block: $headerFooterMargin;
 }

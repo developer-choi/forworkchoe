@@ -1,8 +1,6 @@
 @use 'container.module';
 
 .oneButtonFooter {
-  flex-grow: 0;
-  
   padding: {
     bottom: container.$modalPadding;
     left: container.$modalPadding;

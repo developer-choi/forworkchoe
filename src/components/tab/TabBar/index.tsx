@@ -1,9 +1,9 @@
-import React, {CSSProperties} from 'react';
+import React, { CSSProperties } from 'react';
 import classNames from 'classnames';
 import styles from './index.module.scss';
-import ActiveLink, {ActiveLinkProps, LinkActiveMode} from '@/components/element/link/ActiveLink';
+import CustomLink, {CustomLinkProps, LinkActiveMode} from '@/components/element/link/CustomLink';
 
-export type TabBarItem = Omit<ActiveLinkProps, 'enableActive'>;
+export type TabBarItem = Omit<CustomLinkProps, 'enableActive'>;
 
 export interface TabBarProps {
   /**
@@ -32,14 +32,14 @@ export default function TabBar({ widthMode, activeMode, style, className, linkLi
       className={classNames(styles.container, styles[widthMode], { [styles.mobile]: isMobile }, className)}
     >
       {linkList.map(({ children, ...rest }, index) => (
-        <ActiveLink
+        <CustomLink
           key={index}
           className={classNames(styles.item)}
           enableActive={{ mode: activeMode, className: styles.active }}
           {...rest}
         >
           <span className={styles.label}>{children}</span>
-        </ActiveLink>
+        </CustomLink>
       ))}
     </div>
   );

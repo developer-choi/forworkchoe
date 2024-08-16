@@ -2,11 +2,10 @@
 
 import {useForm} from 'react-hook-form';
 import React from 'react';
-import styles from './index.module.scss';
+import {styled} from 'styled-components';
 import {filterPropsList, generatePropsList} from '@/util/extend/test/generate-prop';
-import {ButtonColor, ButtonLink, ButtonSize, ButtonVariant} from '@/components/element/Button';
+import {ButtonColor, ButtonSize, ButtonStyleLink, ButtonVariant} from '@/components/element/Button';
 import DesignSystemTestForm from '@/components/test/DesignSystemTestForm';
-import InfoSvg from '@/components/icon/InfoSvg';
 
 /**
  * Doc : https://docs.google.com/document/d/1aEHPwWUlT8nLpzuJwogzQerYawVbWIk8WCMRaxleDaI/edit
@@ -15,8 +14,7 @@ import InfoSvg from '@/components/icon/InfoSvg';
 const {combinations, filterRecord} = generatePropsList<ButtonProps>({
   color: ['all', undefined, 'primary', 'secondary'],
   size: ['all', undefined, 'large', 'medium'],
-  variant: ['all', undefined, 'outlined', 'contained'],
-  icon: 'boolean',
+  variant: ['all', undefined, 'outline', 'fill'],
 });
 
 export default function ButtonPage() {
@@ -36,11 +34,11 @@ export default function ButtonPage() {
 
   return (
     <DesignSystemTestForm register={register} filterRecord={filterRecord}>
-      <div className={styles.wrap}>
+      <ButtonWrap>
         {filteredList.map((props, index) => (
           <ButtonInfo key={index} visibleInfo={filter.visibleInfo} props={props}/>
         ))}
-      </div>
+      </ButtonWrap>
     </DesignSystemTestForm>
   );
 }
@@ -50,8 +48,17 @@ interface FormData {
   size: ButtonSize | 'all' | undefined;
   color: ButtonColor | 'all' | undefined;
   visibleInfo: boolean;
-  icon: boolean;
 }
+
+const ButtonWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  
+  > * {
+    width: 200px;
+  }
+`;
 
 interface ButtonInfoProps {
   visibleInfo: boolean;
@@ -59,11 +66,9 @@ interface ButtonInfoProps {
 }
 
 function ButtonInfo({visibleInfo, props}: ButtonInfoProps) {
-  const {icon, ...rest} = props;
-
   return (
     <div>
-      <ButtonLink href="" {...rest}>{icon ? <InfoSvg/> : ''} Click Me</ButtonLink>
+      <ButtonStyleLink href="" {...props}>Click Me</ButtonStyleLink>
       {!visibleInfo ? null : (
         <ul>
           {Object.entries(props).map(([key, value]) => (
@@ -81,5 +86,4 @@ interface ButtonProps {
   variant: ButtonVariant | undefined;
   size: ButtonSize | undefined;
   color: ButtonColor | undefined;
-  icon: boolean;
 }

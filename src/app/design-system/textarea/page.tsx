@@ -3,7 +3,7 @@
 import {useForm} from 'react-hook-form';
 import React, {useState} from 'react';
 import TextArea from '@/components/form/TextArea';
-import styles from './index.module.scss';
+import {styled} from 'styled-components';
 import {filterPropsList, generatePropsList} from '@/util/extend/test/generate-prop';
 
 /**
@@ -35,7 +35,7 @@ export default function TextAreaPage() {
   const filteredList = filterPropsList(combinations, watch());
 
   return (
-    <div className={styles.wrap}>
+    <Wrap>
       <form>
         {Object.entries(filterRecord).map(([key, array]) => (
           <div key={key}>
@@ -49,12 +49,12 @@ export default function TextAreaPage() {
         ))}
       </form>
 
-      <div className={styles.textAreaList}>
+      <TextAreaList>
         {filteredList.map((props, index) => (
           <TextAreaTester key={index} {...props} />
         ))}
-      </div>
-    </div>
+      </TextAreaList>
+    </Wrap>
   );
 }
 
@@ -81,3 +81,21 @@ function TextAreaTester(props: TextAreaProps) {
 
   return <TextArea {...props} value={value} onChange={(event) => setValue(event.target.value)}/>;
 }
+
+const Wrap = styled.div`
+  padding: 20px;
+  
+  form label:has(input[type="radio"]) {
+    margin-right: 8px;
+  }
+`;
+
+const TextAreaList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  
+  > * {
+    width: 300px;
+  }
+`;

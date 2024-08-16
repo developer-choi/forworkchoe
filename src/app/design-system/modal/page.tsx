@@ -29,7 +29,7 @@ export default function DesignSystemTest() {
 function ClassifyModalTest() {
   const { register, watch, handleSubmit } = useForm<ModalFormData>({
     defaultValues: {
-      type: 'bottomSheet',
+      type: 'centerAlign',
       title: 'short',
       content: 'short',
       size: 'medium',

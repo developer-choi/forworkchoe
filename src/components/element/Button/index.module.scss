@@ -1,5 +1,5 @@
-@use "/src/util/style/util" as util;
-@use "/src/util/style/color" as color;
+@import "/src/util/style/util.scss";
+@import "/src/util/style/color.scss";
 
 /**
  * class로 경우에따라 loading 지정 필요
@@ -68,14 +68,14 @@
   //  disabled 상태인 경우 강제로 contained 적용
   @if $colorOrState == 'disabled' {
     $pointerColor: white;
-    border-color: map-get(color.$stateColors, disabled);
-    background-color: map-get(color.$stateColors, disabled);
+    border-color: map-get($stateColors, disabled);
+    background-color: map-get($stateColors, disabled);
     color: $pointerColor;
     @include loadingColor($pointerColor);
   }
   
   @else {
-    $pointerColor: map-get(color.$brandColors, $colorOrState);
+    $pointerColor: map-get($brandColors, $colorOrState);
     border-color: $pointerColor;
     background-color: if($variant == 'contained', $pointerColor, white);
     color: if($variant == 'contained', white, $pointerColor);

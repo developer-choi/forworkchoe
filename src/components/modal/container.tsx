@@ -16,7 +16,7 @@ export interface ModalContainerProps extends EssentialModalProps, Omit<Component
 // Alert, Confirm 등 모달 확장할 때 이 타입을 확장하기
 export type ComposedModalProps = Omit<ModalContainerProps, 'type' | 'size'>;
 
-export function ModalContainer({className, size = 'medium', type, easilyClose, onClose, open = true, ...rest}: ModalContainerProps) {
+export function ModalContainer({className, size = 'medium', type, easilyClose, onClose, open, ...rest}: ModalContainerProps) {
   const modalRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {

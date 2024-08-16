@@ -1,27 +1,4 @@
-import {ReactElement, ReactNode, useCallback, useState} from 'react';
-
-export function useToggle(initial = false) {
-  const [bool, setBool] = useState(initial);
-
-  const setTrue = useCallback(() => {
-    setBool(true);
-  }, []);
-
-  const setFalse = useCallback(() => {
-    setBool(false);
-  }, []);
-
-  const toggle = useCallback(() => {
-    setBool((prevState) => !prevState);
-  }, []);
-
-  return {
-    bool,
-    setTrue,
-    setFalse,
-    toggle,
-  };
-}
+import {ReactElement, ReactNode} from 'react';
 
 export function isReactElement(value: ReactNode) {
   try {

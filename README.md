@@ -1,2 +1,1 @@
-# Information
-This project is for learning Markup which is based on React.
+구글문서에 걸린 커밋링크 때문에 삭제를 못하는 프로젝트이며 더이상 유지되지않음.

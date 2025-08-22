@@ -1,10 +1,12 @@
 {
-  "name": "core-monorepo",
+  "name": "core",
   "private": true,
   "workspaces": [
-    "core"
+    "core", "nextjs"
   ],
   "scripts": {
-    "storybook": "yarn workspace @forworkchoe/core storybook"
+    "storybook": "yarn workspace @forworkchoe/core storybook",
+    "deploy": "yarn workspace @forworkchoe/core deploy",
+    "dev": "yarn workspace nextjs dev"
   }
 }

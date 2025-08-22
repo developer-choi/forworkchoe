@@ -1,0 +1,51 @@
+{
+  "name": "@forworkchoe/core",
+  "version": "0.0.7",
+  "type": "module",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc -b && vite build",
+    "lint": "./node_modules/.bin/eslint .",
+    "preview": "./node_modules/.bin/vite preview",
+    "storybook": "./node_modules/.bin/storybook dev -p 6006",
+    "build-storybook": "./node_modules/.bin/storybook build",
+    "deploy": "./node_modules/.bin/tsc -b && vite build && yarn publish --access=public"
+  },
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "classnames": ">=2.5.1",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "sass": ">=1.89.2"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "4.0.1",
+    "@eslint/js": "^9.25.0",
+    "@storybook/addon-docs": "9.0.12",
+    "@storybook/addon-onboarding": "9.0.12",
+    "@storybook/react-vite": "9.0.12",
+    "@types/node": "^24.0.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.4.1",
+    "classnames": "^2.5.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "eslint-plugin-storybook": "9.0.12",
+    "globals": "^16.0.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "rollup-preserve-directives": "^1.1.3",
+    "sass": "^1.90.0",
+    "storybook": "9.0.12",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.30.1",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-static-copy": "^3.0.2"
+  }
+}

@@ -7,6 +7,7 @@
   "scripts": {
     "storybook": "yarn workspace @forworkchoe/core storybook",
     "deploy": "yarn workspace @forworkchoe/core deploy",
+    "test": "yarn workspace @forworkchoe/core test",
     "dev": "yarn workspace nextjs dev"
   }
 }

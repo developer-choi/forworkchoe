@@ -1,5 +1,5 @@
 {
-  "name": "core",
+  "name": "forworkchoe",
   "private": true,
   "workspaces": [
     "core", "nextjs"

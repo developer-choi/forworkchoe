@@ -3,12 +3,14 @@
   "version": "0.0.8",
   "type": "module",
   "scripts": {
-    "build": "./node_modules/.bin/tsc -b && vite build",
-    "lint": "./node_modules/.bin/eslint .",
-    "preview": "./node_modules/.bin/vite preview",
-    "storybook": "./node_modules/.bin/storybook dev -p 6006",
-    "build-storybook": "./node_modules/.bin/storybook build",
-    "deploy": "./node_modules/.bin/tsc -b && vite build && yarn publish --access=public"
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "deploy": "yarn test && yarn publish --access=public",
+    "test": "tsc -b && yarn lint && yarn jest",
+    "jest": "jest"
   },
   "module": "dist/index.js",
   "types": "dist/index.d.ts",

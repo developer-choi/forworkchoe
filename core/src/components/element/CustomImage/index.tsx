@@ -1,6 +1,6 @@
 import Image, {type ImageProps} from 'next/image';
 import styles from './index.module.scss';
-import NextjsLogo from '/public/imgs/nextjs.svg';
+import NextjsLogo from '@/assets/icon/nextjs.svg';
 import {type ReactElement, useCallback, useEffect, useState} from 'react';
 import classNames from 'classnames';
 

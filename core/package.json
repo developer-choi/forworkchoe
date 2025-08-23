@@ -19,7 +19,8 @@
     "classnames": ">=2.5.1",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
-    "sass": ">=1.89.2"
+    "sass": ">=1.89.2",
+    "next": "14.2.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "4.0.1",

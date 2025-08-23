@@ -1,4 +1,4 @@
-import {Button} from '@forworkchoe/core/src';
+import Button from '@/components/element/Button';
 
 export default function Page() {
   return (

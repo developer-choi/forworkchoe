@@ -38,6 +38,10 @@ export default defineConfig({
       },
     },
   },
+  // 로컬에서 storybook 개발 시 process 못찾는 ReferenceError가 발생해서 추가
+  define: {
+    'process.env': {},
+  },
   plugins: [
     dts({
       tsconfigPath: './tsconfig.app.json',

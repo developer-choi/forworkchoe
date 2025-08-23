@@ -1,6 +1,6 @@
 {
   "name": "@forworkchoe/core",
-  "version": "0.0.8",
+  "version": "0.0.12",
   "type": "module",
   "scripts": {
     "build": "vite build",

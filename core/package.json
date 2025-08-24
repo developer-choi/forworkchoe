@@ -1,6 +1,6 @@
 {
   "name": "@forworkchoe/core",
-  "version": "0.0.12",
+  "version": "0.0.16",
   "type": "module",
   "scripts": {
     "build": "vite build",
@@ -8,15 +8,20 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "deploy": "yarn test && yarn publish --access=public",
+    "deploy": "yarn test && vite build && yarn publish --access=public",
     "test": "tsc -b && yarn lint && yarn jest",
     "jest": "jest"
   },
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./core.css": "./dist/core.css"
+  },
   "peerDependencies": {
     "classnames": ">=2.5.1",
     "react": ">=18.0.0",

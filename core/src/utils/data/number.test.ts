@@ -1,4 +1,4 @@
-import {calculateNumberTotal, calculateTotal, numberWithComma, range} from '@/utils/data-type/number';
+import {calculateNumberTotal, calculateTotal, numberWithComma, range} from '@/utils/data/number';
 
 describe('numberWithComma()', () => {
   const positiveCases = [

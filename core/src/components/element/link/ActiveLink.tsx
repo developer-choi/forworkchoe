@@ -5,7 +5,7 @@ import type {LinkProps} from 'next/link';
 import classNames from 'classnames';
 import {usePathname, useSearchParams} from 'next/navigation';
 import CustomLink, {type CustomLinkProps} from '@/components/element/link/CustomLink';
-import {doesPathStartWithSegment} from '@/utils/data-type/string';
+import {doesPathStartWithSegment} from '@/utils/data/string';
 
 export type LinkActiveMode = 'startsWith' | 'exact' | boolean;
 

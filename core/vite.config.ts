@@ -18,7 +18,8 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
-        utils: resolve(__dirname, 'src/utils/index.ts')
+        utils: resolve(__dirname, 'src/utils/index.ts'),
+        hooks: resolve(__dirname, 'src/hooks/index.ts')
       },
       formats: ['es']
     },

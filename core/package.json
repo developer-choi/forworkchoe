@@ -1,6 +1,6 @@
 {
   "name": "@forworkchoe/core",
-  "version": "0.0.18",
+  "version": "0.0.20",
   "type": "module",
   "scripts": {
     "build": "vite build",
@@ -23,6 +23,10 @@
     "./utils": {
       "import": "./dist/utils.js",
       "types": "./dist/utils.d.ts"
+    },
+    "./hooks": {
+      "import": "./dist/hooks.js",
+      "types": "./dist/hooks.d.ts"
     },
     "./core.css": "./dist/core.css"
   },

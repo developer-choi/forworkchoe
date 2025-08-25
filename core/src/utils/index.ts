@@ -3,6 +3,9 @@ export * from '@/utils/data/number';
 export * from '@/utils/data/object';
 export * from '@/utils/data/string';
 
+export * from '@/utils/event';
+export * from '@/utils/event/keyboard';
+
 export * from '@/utils/data/date/calendar';
 export * from '@/utils/data/date/convert';
 export * from '@/utils/data/date/future';

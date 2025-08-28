@@ -22,5 +22,11 @@ export default tseslint.config({
   },
   rules: {
     '@typescript-eslint/no-explicit-any': 'off',
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "argsIgnorePattern": "^_",
+      "varsIgnorePattern": "^_",
+      "caughtErrors": "all", // 아래 caughtErrorsIgnorePattern 옵션을 활성화 하기 위함
+      "caughtErrorsIgnorePattern": "^_" // catch문을 무시하고싶을 때 error 매개변수 이름을 _ 로 하는 경우 대응
+    }]
   },
 }, storybook.configs['flat/recommended']);

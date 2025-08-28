@@ -1,6 +1,4 @@
 export * from '@/utils/browser/document';
-export * from '@/utils/browser/storage-object';
-export * from '@/utils/browser/storage-array';
 
 export * from '@/utils/data/array';
 export * from '@/utils/data/number';

@@ -3,7 +3,7 @@ import {
   StorageObjectManager,
   type StorageObjectParameter,
   useStorageObjectManager
-} from '@/utils/browser/storage-object';
+} from '@/hooks/browser/storage-object';
 import {type PkType, removeDuplicatedObject} from '@/utils/data/array';
 
 export interface StorageArrayParameter<I extends object, P extends PkType> {

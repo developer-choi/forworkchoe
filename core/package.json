@@ -5,12 +5,12 @@
   "scripts": {
     "build": "vite build",
     "lint": "eslint .",
+    "test": "jest",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "deploy": "yarn test && vite build && yarn publish --access=public",
-    "test": "tsc -b && yarn lint && yarn jest",
-    "jest": "jest"
+    "deploy": "yarn test-all && vite build && yarn publish --access=public",
+    "test-all": "tsc -b && yarn lint && yarn test"
   },
   "files": [
     "dist"

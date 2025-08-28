@@ -2,6 +2,7 @@ export * from '@/utils/data/array';
 export * from '@/utils/data/number';
 export * from '@/utils/data/object';
 export * from '@/utils/data/string';
+export * from '@/utils/data/math';
 
 export * from '@/utils/event';
 export * from '@/utils/event/keyboard';

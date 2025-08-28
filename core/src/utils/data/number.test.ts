@@ -1,5 +1,6 @@
 import {calculateNumberTotal, calculateTotal, numberWithComma, range} from '@/utils/data/number';
 
+// yarn test src/utils/data/number.test.ts
 describe('numberWithComma()', () => {
   const positiveCases = [
     {input: 1, expected: '1'},

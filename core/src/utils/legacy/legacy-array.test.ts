@@ -1,5 +1,6 @@
 import {chunk, downsample, getNextLoopItem} from './legacy-array'; // Assuming improved names are used
 
+// yarn test src/utils/legacy/legacy-array.test.ts
 describe('chunk', () => {
   it('should split an array into chunks of the specified size', () => {
     const array = [1, 2, 3, 4, 5, 6, 7];

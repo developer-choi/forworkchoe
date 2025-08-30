@@ -15,3 +15,9 @@ export * from '@/utils/data/date/util';
 
 export * from '@/utils/event';
 export * from '@/utils/event/keyboard';
+
+export * from '@/utils/random';
+export * from '@/utils/random/generate-dummy';
+
+export * from '@/utils/test/promise';
+export * from '@/utils/test/resources';

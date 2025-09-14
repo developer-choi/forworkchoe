@@ -1,5 +1,5 @@
 import {validateComputableNumber, type ValidateQueryOption} from '@/utils/query-string/validate';
-import {ValidationError} from '@/utils/error/class/ValidationError';
+import ValidationError from '@/utils/error/class/ValidationError';
 
 describe('validateComputableNumber()', () => {
   const VALID_NUMBER_STRING = '123';

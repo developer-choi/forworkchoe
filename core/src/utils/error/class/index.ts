@@ -14,7 +14,7 @@ export interface BaseErrorOption {
 /**
  * 모든 커스텀 에러에 공통적으로 적용되야하는 설계를 반영
  */
-export abstract class BaseError extends Error {
+export default abstract class BaseError extends Error {
   readonly abstract name: string; // 반드시 overriding 해야하고, 이후 수정 못하게 설정
 
   /**

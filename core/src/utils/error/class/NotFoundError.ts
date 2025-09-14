@@ -1,4 +1,4 @@
-import {BaseError} from '@/utils';
+import BaseError from '@/utils/error/class';
 
 /**
  * 1. API 호출했는데 404가 응답된 경우

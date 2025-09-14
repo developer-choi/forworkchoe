@@ -1,4 +1,4 @@
-import {BaseError} from '@/utils';
+import BaseError from '@/utils/error/class';
 
 export interface ValidationErrorOptions<T extends string> {
   /**
@@ -16,7 +16,7 @@ export interface ValidationErrorOptions<T extends string> {
   data: object;
 }
 
-export class ValidationError<L extends string = string> extends BaseError {
+export default class ValidationError<L extends string = string> extends BaseError {
   readonly name = 'ValidationError';
   readonly options: ValidationErrorOptions<L>;
 

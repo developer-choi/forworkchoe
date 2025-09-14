@@ -1,5 +1,5 @@
 import {type ValidateQueryOption, validateString} from '@/utils/query-string/validate';
-import ValidationError from '@/utils/error/class/ValidationError';
+import ValidationError from '@/utils/error/class/info/ValidationError';
 
 describe('validateString()', () => {
   describe('General cases', () => {

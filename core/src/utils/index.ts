@@ -6,9 +6,12 @@ export * from '@/utils/data/object';
 export * from '@/utils/data/string';
 export * from '@/utils/data/math';
 
+export * from '@/utils/error/class/info/auth';
+export {default as HTMLElementNotFoundError} from '@/utils/error/class/info/HTMLElementNotFoundError';
+export {default as NotFoundError} from '@/utils/error/class/info/NotFoundError';
+export {default as ValidationError} from '@/utils/error/class/info/ValidationError';
+export {default as InvalidDevelopPolicyError} from '@/utils/error/class/warning/InvalidDevelopPolicyError';
 export {default as BaseError} from '@/utils/error/class';
-export {default as ValidationError} from '@/utils/error/class/ValidationError';
-export {default as NotFoundError} from '@/utils/error/class/NotFoundError';
 
 export * from '@/utils/data/date/calendar';
 export * from '@/utils/data/date/convert';

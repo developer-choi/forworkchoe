@@ -3,7 +3,7 @@ import styles from './index.module.scss';
 import NextjsLogo from '@/assets/icon/nextjs.svg';
 import {type ReactElement, useCallback, useEffect, useState} from 'react';
 import classNames from 'classnames';
-import NotFoundError from '@/utils/error/class/NotFoundError';
+import NotFoundError from '@/utils/error/class/info/NotFoundError';
 
 export interface CustomImageProps extends Omit<ImageProps, 'src'> {
   src: ImageProps['src'] | '' | null | undefined; // 이미지 src 출처가 API 같은 외부이고, 그 값이 유효하지않은 케이스도 대응하기 위함

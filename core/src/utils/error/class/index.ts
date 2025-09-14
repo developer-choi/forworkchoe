@@ -4,8 +4,8 @@ export interface SentryOption {
   level: SeverityLevel;
 }
 
-export interface CustomizedErrorOption extends SentryOption {
-  cause: Error;
+export interface BaseErrorOption {
+  cause?: Error;
 }
 
 /**
@@ -16,7 +16,7 @@ export abstract class BaseError extends Error {
   readonly sentry: Partial<SentryOption> | undefined;
   // readonly platform: 'server' | 'client'; 공통적으로 저장하고 싶은 데이터가 있다면 추가
 
-  protected constructor(message: string, option?: Partial<CustomizedErrorOption>) {
+  protected constructor(message: string, option: SentryOption & BaseErrorOption) {
     const {cause, ...sentry} = option ?? {};
     super(message, {cause});
     this.sentry = sentry;
@@ -44,7 +44,7 @@ export class ValidationError<L extends string = string> extends BaseError {
   readonly name = 'ValidationError';
 
   constructor(message: string, options: ValidationErrorOptions<L>) {
-    super(message);
+    super(message, {level: 'info'});
     this.options = options;
   }
 }

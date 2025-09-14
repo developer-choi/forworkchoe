@@ -34,10 +34,11 @@ export abstract class BaseError extends Error {
 
 export interface ValidationErrorOptions<T extends string> {
   /**
-   * 목적: 에러가 발생한 폼 요소를 구분할 수 있는 값.
-   * - 주로 react-hook-form의 register()로 전달하는 name값을 location에 전달하는 경우가 많습니다.
+   * 에러가 발생한 원인 or 폼요소 위치를 구분하기 위한 값
+   * 목적 1. react-hook-form의 register()로 전달하는 name값을 전달해서 사용
+   * 목적 2. 파일 유효성검증하다가 원인이 파일명 유효성검증 규칙이면 SYNTAX가 될 수도 있고, 용량이면 SIZE가 될 수도 있음.
    */
-  location?: T;
+  reason?: T;
 
   /**
    * 에러가 발생한 당시 폼 데이터 전체 혹은 일부.

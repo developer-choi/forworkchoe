@@ -1,17 +1,7 @@
-// @sentry/nextjs@8
 type SeverityLevel = 'fatal' | 'error' | 'warning' | 'log' | 'info' | 'debug';
 
-// export type SentryTag = 'some';
 export interface SentryOption {
   level: SeverityLevel;
-
-  /**
-   * sentry로 보내지 않기 위한 설정.
-   * 애초에 Sentry로 가지않게 던지는 곳에서 조건 따져서 throw 하면 되는 아니냐 라는 생각이 아직 있기 때문에, 검토만 하는중
-   */
-  // ignore: boolean;
-  // readonly tag: SentryTag 다른사람들 태그 활용법 찾아보고, 마땅한게 없으면 난 태그를 여기에 추가할 계획임. 그러고나서 beforesend에 추가.
-  // readonly sendAlert: 'email' | 'slack; 이런 옵션도 좋을거같고, 있으면 tag에 추가하고 그 tag를 sentry에서 설정을 해두는거지.
 }
 
 export interface CustomizedErrorOption extends SentryOption {
@@ -47,13 +37,6 @@ export interface ValidationErrorOptions<T extends string> {
    * 필요 시 전달 (Sentry로 보내서 원인 파악을 위함)
    */
   data: object;
-
-  /**
-   * @description 빌드 결과물에서 (운영서버) 함수 실행하다 오류가 발생했을 때 그 함수 이름
-   * 빌드하면 함수이름들 다 난도화되서 못알아봐서 넣으려고 했음.
-   * 근데 에러메시지로 검색하면 어디서 발생했는지 알 수 있으니까 안넣기로 결정헀음
-   */
-  // functionName: string;
 }
 
 export class ValidationError<L extends string = string> extends BaseError {

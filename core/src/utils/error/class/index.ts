@@ -21,7 +21,7 @@ export interface CustomizedErrorOption extends SentryOption {
 /**
  * 모든 커스텀 에러에 공통적으로 적용되야하는 설계를 반영
  */
-export abstract class CustomizedError extends Error {
+export abstract class BaseError extends Error {
   readonly abstract name: string; // 반드시 overriding 해야하고, 이후 수정 못하게 설정
   readonly sentry: Partial<SentryOption> | undefined;
   // readonly platform: 'server' | 'client'; 공통적으로 저장하고 싶은 데이터가 있다면 추가
@@ -56,7 +56,7 @@ export interface ValidationErrorOptions<T extends string> {
   // functionName: string;
 }
 
-export class ValidationError<L extends string = string> extends CustomizedError {
+export class ValidationError<L extends string = string> extends BaseError {
   readonly options: ValidationErrorOptions<L>;
   readonly name = 'ValidationError';
 

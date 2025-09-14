@@ -1,5 +1,5 @@
 import {validateIncludeString, type ValidateQueryOption} from '@/utils/query-string/validate';
-import {ValidationError} from '@/utils/error/class';
+import {ValidationError} from '@/utils/error/class/ValidationError';
 
 const ALLOW_LIST = ['ascending', 'descending'];
 const VALID_VALUE = 'ascending';

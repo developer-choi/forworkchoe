@@ -4,6 +4,7 @@ type SeverityLevel = 'fatal' | 'error' | 'warning' | 'log' | 'info' | 'debug';
 
 export interface SentryOption {
   level: SeverityLevel;
+  tags?: Record<string, string | number>;
 }
 
 export interface BaseErrorOption {

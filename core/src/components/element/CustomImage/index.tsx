@@ -3,6 +3,7 @@ import styles from './index.module.scss';
 import NextjsLogo from '@/assets/icon/nextjs.svg';
 import {type ReactElement, useCallback, useEffect, useState} from 'react';
 import classNames from 'classnames';
+import NotFoundError from '@/utils/error/class/NotFoundError';
 
 export interface CustomImageProps extends Omit<ImageProps, 'src'> {
   src: ImageProps['src'] | '' | null | undefined; // 이미지 src 출처가 API 같은 외부이고, 그 값이 유효하지않은 케이스도 대응하기 위함
@@ -49,6 +50,14 @@ export default function CustomImage({ src, fallback, onError, quality = 100, wid
       src: prevState.src,
       error: true, // src 문법은 올바르나, 실제로는 유효하지않은 (404, 403 등) 이미지인 경우
     }));
+
+    if (typeof src === 'string') {
+      throw new NotFoundError({
+        url: src,
+        type: 'image',
+        method: 'GET'
+      });
+    }
   }, [fallback]);
 
   useEffect(() => {

@@ -1,3 +1,5 @@
+import {isServer} from '@/utils/library/next';
+
 type SeverityLevel = 'fatal' | 'error' | 'warning' | 'log' | 'info' | 'debug';
 
 export interface SentryOption {
@@ -21,14 +23,13 @@ export abstract class BaseError extends Error {
    * PaymentFetchError 같은 에러 클래스를 별도로 만들고 그 인스턴스를 던지는것을 의도했습니다.
    */
   readonly sentryOptions: SentryOption;
-
-  // readonly platform: 'server' | 'client'; 공통적으로 저장하고 싶은 데이터가 있다면 추가
+  readonly platform: 'server' | 'client';
 
   protected constructor(message: string, option: SentryOption & BaseErrorOption) {
     const {cause, ...sentry} = option ?? {};
     super(message, {cause});
     this.sentryOptions = sentry;
-    // this.platform = isServer() ? 'server' : 'client';
+    this.platform = isServer() ? 'server' : 'client';
   }
 }
 

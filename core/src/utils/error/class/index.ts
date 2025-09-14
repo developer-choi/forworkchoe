@@ -13,13 +13,21 @@ export interface BaseErrorOption {
  */
 export abstract class BaseError extends Error {
   readonly abstract name: string; // 반드시 overriding 해야하고, 이후 수정 못하게 설정
-  readonly sentry: Partial<SentryOption> | undefined;
+
+  /**
+   * 외부에서 sentryOptions를 재할당 하지 못하게 하기 위해 readonly를 설정했습니다.
+   * 예를들어, FetchError의 에러인스턴스의 sentry event level를 상향 하고 싶은 경우,
+   * error.sentryOptions.level = 'fatal' 하는것이 아니라,
+   * PaymentFetchError 같은 에러 클래스를 별도로 만들고 그 인스턴스를 던지는것을 의도했습니다.
+   */
+  readonly sentryOptions: SentryOption;
+
   // readonly platform: 'server' | 'client'; 공통적으로 저장하고 싶은 데이터가 있다면 추가
 
   protected constructor(message: string, option: SentryOption & BaseErrorOption) {
     const {cause, ...sentry} = option ?? {};
     super(message, {cause});
-    this.sentry = sentry;
+    this.sentryOptions = sentry;
     // this.platform = isServer() ? 'server' : 'client';
   }
 }
@@ -40,8 +48,8 @@ export interface ValidationErrorOptions<T extends string> {
 }
 
 export class ValidationError<L extends string = string> extends BaseError {
-  readonly options: ValidationErrorOptions<L>;
   readonly name = 'ValidationError';
+  readonly options: ValidationErrorOptions<L>;
 
   constructor(message: string, options: ValidationErrorOptions<L>) {
     super(message, {level: 'info'});

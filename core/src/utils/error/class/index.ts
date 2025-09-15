@@ -1,5 +1,14 @@
 import {isServer} from '@/utils/library/next';
 
+/** 현재 목적
+ * fatal = 현재 작업 중단하고 바로 확인해야하는 에러
+ * error = unhandled
+ * warning = 처리를 하긴 해야하지만, 바로 확인할 필요는 없는 에러
+ * info = 짧은 기간안에 아주 많이 발생한 경우에만 확인 할 에러
+ *
+ * 예시 1. ResourceLoadError ==> 어드민에서 배너이미지를 없는 경로로 지정하는 경우에 짧은기간동안 많은 ResourceLoadError 에러가 발생하게 될텐데, 이걸 감지하기 위함
+ * 예시 2. NotFoundError ==> 어드민에서 배너이미지에 클릭 시 이동할 웹페이지 URL 링크를 잘못 건 경우 (이하 생략)
+ */
 type SeverityLevel = 'fatal' | 'error' | 'warning' | 'log' | 'info' | 'debug';
 
 export interface SentryOption {

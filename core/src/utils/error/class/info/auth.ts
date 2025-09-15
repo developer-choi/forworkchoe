@@ -20,3 +20,23 @@ export class NotAuthenticatedError extends BaseError {
     this.loginUrlWithRedirect = loginUrlWithRedirect;
   }
 }
+
+export interface LoginFailErrorOptions {
+  channel: string; // 로그인 수단 (아이디 비번, SNS 로그인 등)
+  email: string;
+  data?: any;
+}
+
+/**
+ * 로그인을 시도했는데 예상하지 못한 에러가 발생한 경우
+ * FetchError 대신 던지려고 만든 에러입니다.
+ */
+export class LoginFailError extends BaseError {
+  readonly name = 'LoginFailError';
+  readonly options: LoginFailErrorOptions;
+
+  constructor(message: string, options: LoginFailErrorOptions) {
+    super(message, {level: 'fatal'});
+    this.options = options;
+  }
+}

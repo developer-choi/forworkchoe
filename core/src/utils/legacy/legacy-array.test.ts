@@ -1,4 +1,4 @@
-import {chunk, downsample, getNextLoopItem} from './legacy-array'; // Assuming improved names are used
+import {chunk, downsample, getNextLoopItem} from './legacy-array';
 
 // yarn test src/utils/legacy/legacy-array.test.ts
 describe('chunk', () => {

@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {isMatchKeyboardShortcut, type KeyboardShortcut} from '@/utils/event/keyboard.ts';
+import {isMatchKeyboardShortcut, type KeyboardShortcut} from '@/utils/event/keyboard';
 
 /**
  * Custom hook to handle keyboard events matching a specific keyboard shortcut.

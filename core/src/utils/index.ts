@@ -10,7 +10,8 @@ export * from '@/utils/error/class/info/auth';
 export {default as HTMLElementNotFoundError} from '@/utils/error/class/info/HTMLElementNotFoundError';
 export {default as NotFoundError} from '@/utils/error/class/info/NotFoundError';
 export {default as ValidationError} from '@/utils/error/class/info/ValidationError';
-export {default as InvalidDevelopPolicyError} from '@/utils/error/class/warning/InvalidDevelopPolicyError.ts';
+export * from '@/utils/error/class/warning/fetch';
+export {default as InvalidDevelopPolicyError} from '@/utils/error/class/warning/InvalidDevelopPolicyError';
 export {default as BaseError} from '@/utils/error/class';
 
 export * from '@/utils/data/date/calendar';
@@ -26,8 +27,11 @@ export * from '@/utils/event/keyboard';
 export * from '@/utils/random';
 export * from '@/utils/random/generate-dummy';
 
+export * from '@/utils/library/BaseApi';
+export {default as BaseApi} from '@/utils/library/BaseApi';
 export * from '@/utils/library/next';
 
+export * from '@/utils/query-string/convert';
 export * from '@/utils/query-string/validate';
 
 export * from '@/utils/test/promise';

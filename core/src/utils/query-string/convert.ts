@@ -1,4 +1,4 @@
-import {type ParsedUrlQuery, stringify} from 'querystring';
+import type {ParsedUrlQuery, ParsedUrlQueryInput, StringifyOptions} from 'querystring';
 
 // record의 value로 object만 없으면 됨.
 export type ConvertableQuery = Record<string, string | string[] | boolean | number | number[] | null | undefined>;
@@ -35,3 +35,31 @@ export function stringifyQuery(query?: ConvertableQuery): '' | `?${string}` {
  * Non Export
  *************************************************************************************************************/
 const REMOVE_VALUE_ARRAY = [undefined, null, Number.NaN];
+
+function stringify(obj?: ParsedUrlQueryInput, sep = '&', eq = '=', options?: StringifyOptions): string {
+  if (obj === null || obj === undefined) {
+    return '';
+  }
+
+  const encode = options?.encodeURIComponent || globalThis.encodeURIComponent;
+  const pairs: string[] = [];
+
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      const value = obj[key];
+      const encodedKey = encode(key);
+
+      if (Array.isArray(value)) {
+        value.forEach((item) => {
+          if (item !== undefined) {
+            pairs.push(`${encodedKey}${eq}${encode(String(item))}`);
+          }
+        });
+      } else if (value !== undefined) {
+        pairs.push(`${encodedKey}${eq}${encode(String(value))}`);
+      }
+    }
+  }
+
+  return pairs.join(sep);
+}

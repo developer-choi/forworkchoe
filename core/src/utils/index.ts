@@ -8,6 +8,7 @@ export * from '@/utils/data/math';
 
 export * from '@/utils/error/class/info/auth';
 export {default as HTMLElementNotFoundError} from '@/utils/error/class/info/HTMLElementNotFoundError';
+export {default as InvalidAccessError} from '@/utils/error/class/info/InvalidAccessError';
 export {default as NotFoundError} from '@/utils/error/class/info/NotFoundError';
 export {default as ValidationError} from '@/utils/error/class/info/ValidationError';
 export * from '@/utils/error/class/warning/fetch';

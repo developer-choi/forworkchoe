@@ -1,4 +1,5 @@
 export * from '@/utils/browser/document';
+export * from '@/utils/browser/scroll';
 
 export * from '@/utils/data/array';
 export * from '@/utils/data/number';

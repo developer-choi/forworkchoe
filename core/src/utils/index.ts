@@ -33,6 +33,7 @@ export * from '@/utils/library/BaseApi';
 export {default as BaseApi} from '@/utils/library/BaseApi';
 export * from '@/utils/library/next';
 export * from '@/utils/library/next-auth';
+export * from '@/utils/library/typescript';
 
 export * from '@/utils/query-string/convert';
 export * from '@/utils/query-string/validate';

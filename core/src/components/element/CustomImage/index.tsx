@@ -1,3 +1,5 @@
+'use client';
+
 import Image, {type ImageProps} from 'next/image';
 import styles from './index.module.scss';
 import NextjsLogo from '@/assets/icon/nextjs.svg';

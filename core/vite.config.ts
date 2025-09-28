@@ -17,7 +17,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        index: resolve(__dirname, 'src/components/index.ts'),
+        components: resolve(__dirname, 'src/components/index.ts'),
         utils: resolve(__dirname, 'src/utils/index.ts'),
         hooks: resolve(__dirname, 'src/hooks/index.ts')
       },

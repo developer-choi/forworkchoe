@@ -1,7 +1,7 @@
 import styles from './footer.module.scss';
 import classNames from 'classnames';
 import {type ComponentPropsWithoutRef, type ReactNode} from 'react';
-import {Button, type ButtonProps} from '@forworkchoe/core';
+import Button, {type ButtonProps} from '@/components/element/Button';
 
 export type ModalButtonProps = Pick<ButtonProps, 'className' | 'style' | 'children'>;
 

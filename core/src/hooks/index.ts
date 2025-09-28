@@ -7,3 +7,5 @@ export * from '@/hooks/data/date/future';
 export {default as useKeyboardShortcut} from '@/hooks/event/useKeyboardShortcut';
 
 export * from '@/hooks/library/react';
+
+export * from '@/hooks/modal';

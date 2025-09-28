@@ -1,6 +1,6 @@
 {
   "name": "@forworkchoe/core",
-  "version": "0.0.46",
+  "version": "0.0.47",
   "type": "module",
   "scripts": {
     "build": "vite build",
@@ -28,7 +28,9 @@
       "import": "./dist/hooks.js",
       "types": "./dist/hooks.d.ts"
     },
-    "./core.css": "./dist/core.css"
+    "./core.css": "./dist/core.css",
+    "./design-system.module.scss": "./dist/design-system.module.scss",
+    "./typography.module.scss": "./dist/typography.module.scss"
   },
   "peerDependencies": {
     "classnames": ">=2.5.1",

@@ -64,6 +64,14 @@ export default defineConfig({
           src: "./src/styles/common.module.scss",
           dest: "./",
         },
+        {
+          src: "./src/styles/design-system.module.scss",
+          dest: "./",
+        },
+        {
+          src: "./src/styles/typography.module.scss",
+          dest: "./",
+        },
       ],
     }),
     preserveDirectives() // https://github.com/vitejs/vite/discussions/15721

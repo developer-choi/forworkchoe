@@ -9,3 +9,6 @@ export {default as useKeyboardShortcut} from '@/hooks/event/useKeyboardShortcut'
 export * from '@/hooks/library/react';
 
 export * from '@/hooks/modal';
+
+export * from '@/hooks/useCounter';
+export {default as useCounter} from '@/hooks/useCounter';

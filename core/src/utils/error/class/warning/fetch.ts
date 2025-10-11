@@ -29,7 +29,9 @@ export class ApiResponseError extends BaseError {
   readonly detail: ApiErrorDetail | undefined;
 
   constructor(request: BaseApiRequest, response: BaseApiResponse) {
-    super('An error occurred while calling the API.', {level: 'warning'});
+    super(`${request?.method ?? 'GET'} ${response.url}`, {
+      level: 'warning',
+    });
     this.request = request;
     this.response = response;
     this.detail = (response.data && typeof response.data === 'object' && 'error' in response.data) ? response.data.error as ApiErrorDetail : undefined;

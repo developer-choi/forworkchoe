@@ -12,3 +12,5 @@ export {default as CustomLink} from '@/components/element/link/CustomLink';
 
 export * from '@/components/element/LoadingSpinner';
 export {default as LoadingSpinner} from '@/components/element/LoadingSpinner';
+
+export * from '@/components/element/typography';

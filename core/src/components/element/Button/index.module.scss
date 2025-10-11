@@ -94,7 +94,7 @@
  * 2. primary / secondary 지정 필요
  */
 @mixin buttonColorSet {
-  @each $color in primary, secondary {
+  @each $color in primary, secondary, edit, delete {
     @each $variant in outlined, contained {
       &.#{$color}.#{$variant} {
         @include colorSet($variant, $color);

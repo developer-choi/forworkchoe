@@ -90,4 +90,4 @@ const LINE_HEIGHT_BY_SIZE: Record<ButtonSize, number> = {
 type UsedProps = 'style' | 'className' | 'onClick' | 'disabled' | 'children' | 'type';
 export type ButtonSize = 'medium' | 'large' | 'small';
 export type ButtonVariant = 'contained' | 'outlined';
-export type ButtonColor = 'primary' | 'secondary' | string;
+export type ButtonColor = 'primary' | 'secondary' | 'edit' | 'delete' | string;

@@ -2,12 +2,14 @@
   "name": "forworkchoe",
   "private": true,
   "workspaces": [
-    "core", "nextjs"
+    "core",
+    "nextjs"
   ],
   "scripts": {
     "storybook": "yarn workspace @forworkchoe/core storybook",
     "deploy": "yarn workspace @forworkchoe/core deploy",
     "test-all": "yarn workspace @forworkchoe/core test-all",
     "dev": "yarn workspace nextjs dev"
-  }
+  },
+  "packageManager": "yarn@4.10.3"
 }

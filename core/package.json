@@ -3,14 +3,14 @@
   "version": "0.0.53",
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "lint": "eslint .",
-    "test": "jest",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "deploy": "yarn test-all && vite build && yarn publish --access=public",
-    "test-all": "tsc -b && yarn lint && yarn test"
+    "core:build": "vite build",
+    "core:lint": "eslint .",
+    "core:test": "jest",
+    "core:preview": "vite preview",
+    "core:storybook": "storybook dev -p 6006",
+    "core:build-storybook": "storybook build",
+    "core:deploy": "yarn test-all && vite build && yarn publish --access=public",
+    "core:test-all": "tsc -b && yarn lint && yarn test"
   },
   "files": [
     "dist"

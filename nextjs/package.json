@@ -2,11 +2,11 @@
   "name": "nextjs",
   "version": "0.1.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "yarn lint --max-warnings=0 && next build",
-    "start": "next start",
-    "lint": "next lint",
-    "test": "jest"
+    "nextjs:dev": "next dev",
+    "nextjs:build": "yarn lint --max-warnings=0 && next build",
+    "nextjs:start": "next start",
+    "nextjs:lint": "next lint",
+    "nextjs:test": "jest"
   },
   "dependencies": {
     "classnames": "^2.5.1",

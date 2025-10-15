@@ -1,7 +1,8 @@
-import Button from '@/components/element/Button';
+import {Button} from '@forworkchoe/core/components';
+import {range} from '@forworkchoe/core/utils';
 
 export default function Page() {
   return (
-    <Button>Hello World</Button>
+    <Button>{range(1, 2).join(',')}</Button>
   );
 }

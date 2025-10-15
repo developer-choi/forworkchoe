@@ -2,6 +2,7 @@ import {Noto_Sans} from 'next/font/google';
 import '@/styles/reset.css';
 import '@/styles/global.css';
 import {PropsWithChildren} from 'react';
+import '@forworkchoe/core/core.css';
 
 const font = Noto_Sans({
   subsets: ['latin'],

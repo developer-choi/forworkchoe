@@ -29,7 +29,7 @@ export class ApiResponseError extends BaseError {
   readonly detail: ApiErrorDetail | undefined;
 
   constructor(request: BaseApiRequest, response: BaseApiResponse) {
-    super(`${request?.method ?? 'GET'} ${response.url}`, {
+    super(`${request?.method ?? 'GET'} ${response.status} ${response.url}`, {
       level: 'warning',
     });
     this.request = request;

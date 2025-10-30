@@ -6,6 +6,13 @@ type SeverityLevel = 'fatal' | 'error' | 'warning' | 'log' | 'info' | 'debug';
 export interface SentryOption {
   level: SeverityLevel;
   tags?: Record<string, string | number>;
+
+  /**
+   * false면 해당 에러인스턴스는 Sentry로 전송되지 않습니다.
+   * 용도 1. ApiResponseError처럼 request, response를 모두 담고있는 인스턴스가있는데 인증관련 API에서 발생한 경우 민감한 정보가 Sentry로 보내지지 않기 위함
+   * 용도 2. 403 에러처럼 Sentry로 보내지지않아도 되는 경우
+   */
+  report?: boolean;
 }
 
 export interface BaseErrorOption {

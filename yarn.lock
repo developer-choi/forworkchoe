@@ -823,9 +823,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@forworkchoe/core@workspace:core":
+"@forworkchoe/core@workspace:packages/core":
   version: 0.0.0-use.local
-  resolution: "@forworkchoe/core@workspace:core"
+  resolution: "@forworkchoe/core@workspace:packages/core"
   dependencies:
     "@chromatic-com/storybook": "npm:4.0.1"
     "@eslint/js": "npm:^9.25.0"

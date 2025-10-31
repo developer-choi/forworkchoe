@@ -2,8 +2,8 @@
   "name": "forworkchoe",
   "private": true,
   "workspaces": [
-    "core",
-    "nextjs"
+    "nextjs",
+    "packages/*"
   ],
   "scripts": {
     "storybook": "yarn core:storybook",

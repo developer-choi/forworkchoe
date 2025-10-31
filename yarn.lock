@@ -823,6 +823,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@forworkchoe/ai-contexts@workspace:packages/ai-contexts":
+  version: 0.0.0-use.local
+  resolution: "@forworkchoe/ai-contexts@workspace:packages/ai-contexts"
+  languageName: unknown
+  linkType: soft
+
 "@forworkchoe/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@forworkchoe/core@workspace:packages/core"

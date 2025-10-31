@@ -1,0 +1,13 @@
+{
+  "name": "@forworkchoe/ai-contexts",
+  "version": "0.0.5",
+  "type": "module",
+  "scripts": {
+    "postinstall": "node postinstall.js",
+    "ai-contexts:deploy": "yarn npm publish --access=public"
+  },
+  "files": [
+    "docs",
+    "postinstall.js"
+  ]
+}

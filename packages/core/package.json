@@ -9,7 +9,7 @@
     "core:preview": "vite preview",
     "core:storybook": "storybook dev -p 6006",
     "core:build-storybook": "storybook build",
-    "core:deploy": "yarn test-all && vite build && yarn publish --access=public",
+    "core:deploy": "yarn core:test-all && vite build && yarn npm publish --access=public",
     "core:test-all": "tsc -b && yarn core:lint && yarn core:test"
   },
   "files": [

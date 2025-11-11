@@ -25,20 +25,20 @@ export function reverse<K extends string, V extends string>(target: Record<K, V>
  * https://stackoverflow.com/questions/5525795/does-javascript-guarantee-object-property-order
  */
 export function itemListToDataOfType<T extends string>(itemList: NameValueItem<T>[]): DataOfType<T> {
-  const {typeList, record} = itemList.reduce<Omit<DataOfType<T>, 'itemList'>>((a, {name, value}) => {
+  const {types, record} = itemList.reduce<Omit<DataOfType<T>, 'itemList'>>((a, {name, value}) => {
     a.record[value] = name;
-    a.typeList.push(value);
+    a.types.add(value);
 
     return a;
   }, {
-    typeList: [],
+    types: new Set(),
     record: {} as Record<T, string>
   });
 
   return {
     record,
     itemList,
-    typeList
+    types
   };
 }
 
@@ -192,7 +192,7 @@ export interface NameValueItem<T> {
 }
 
 export interface DataOfType<T extends string> {
-  typeList: T[];
+  types: Set<T>;
   itemList: NameValueItem<T>[];
   record: Record<T, string>;
 }

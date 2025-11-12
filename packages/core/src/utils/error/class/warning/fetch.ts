@@ -31,7 +31,7 @@ export class ApiResponseError extends BaseError {
   constructor(request: BaseApiRequest, response: BaseApiResponse) {
     super(`${request?.method ?? 'GET'} ${response.status} ${response.url}`, {
       level: 'warning',
-      report: response.status !== 403
+      shouldReport: response.status !== 403
     });
     this.request = request;
     this.response = response;

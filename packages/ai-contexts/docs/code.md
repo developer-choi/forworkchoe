@@ -6,3 +6,36 @@
 - 반드시 unused imports 가 있는지 확인해주세요.
 - unused variables도 있는지 확인해주세요.
 - 커밋 남기지 말아주세요. 제가 알아서 커밋할게요
+
+## useMutation
+- `mutate` 대신 `mutateAsync` 와 `try-catch` 구문을 사용하는 것을 선호합니다.
+
+### 예시
+
+#### 사용하지 않는 방식
+
+```typescript
+const { mutate } = useMutation(mutationFn, {
+  onSuccess: () => {
+    // 성공 시 로직
+  },
+  onError: () => {
+    // 에러 시 로직
+  },
+});
+
+mutate(variables);
+```
+
+#### 선호하는 방식
+
+```typescript
+const { mutateAsync } = useMutation(mutationFn);
+
+try {
+  await mutateAsync(variables);
+  // 성공 시 로직
+} catch (error) {
+  // 에러 시 로직
+}
+```

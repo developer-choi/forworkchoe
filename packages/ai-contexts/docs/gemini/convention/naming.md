@@ -1,4 +1,8 @@
 # 네이밍 컨벤션
+## 변수명, 함수명, 클래스명 공통
+- callback의 매개변수명을 한글자로 적지않고 원래 단어를 다 그대로 써야합니다.
+- 예시: `array.map(t => t.some)`이 아니라 `array.map(topic => topic.some)` 이런식이 되야합니다.
+
 ## 변수명
 - **camelCase** 사용
 - boolean 변수는 `is`, `has`, `should` 접두사 사용

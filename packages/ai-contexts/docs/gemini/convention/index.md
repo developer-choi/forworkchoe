@@ -25,3 +25,34 @@ describe('Sorting Algorithm', () => {
   // ...
 });
 ```
+
+## Tanstack Query useMutation() 작성방식
+- `mutate` 대신 `mutateAsync` 와 `try-catch` 구문을 사용하는 것을 선호합니다.
+
+### 사용하지 않는 방식
+
+```typescript
+const { mutate } = useMutation(mutationFn, {
+  onSuccess: () => {
+    // 성공 시 로직
+  },
+  onError: () => {
+    // 에러 시 로직
+  },
+});
+
+mutate(variables);
+```
+
+### 선호하는 방식
+
+```typescript
+const { mutateAsync } = useMutation(mutationFn);
+
+try {
+  await mutateAsync(variables);
+  // 성공 시 로직
+} catch (error) {
+  // 에러 시 로직
+}
+```

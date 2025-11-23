@@ -8,10 +8,10 @@
 
 이 저장소는 `Yarn Workspaces`를 기반으로 구성되어 있으며, 크게 두 가지 핵심 패키지를 관리합니다.
 
-### 1. @forworkchoe/core
+### 1. [@forworkchoe/core 바로가기](https://github.com/developer-choi/forworkchoe/tree/main/packages/core)
 > 재사용 가능한 UI 컴포넌트, Hooks, Utils 모음
 
-### 2. @forworkchoe/ai-contexts
+### 2. [@forworkchoe/ai-contexts 바로가기](https://github.com/developer-choi/forworkchoe/tree/main/packages/ai-contexts)
 > AI Coding Assistant를 위한 Context 관리 도구
 
 * Goal: AI에게 매번 설명해야 하는 규칙을 한곳에서 관리하고, 패키지 설치만으로 다른 프로젝트에 적용합니다.

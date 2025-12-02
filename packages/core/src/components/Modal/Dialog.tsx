@@ -45,6 +45,7 @@ export interface DialogProps {
   children: ReactNode;
   className?: string;
   disableEscapeKeyDown?: boolean;
+  disableBackdropClick?: boolean;
   onClose?: (
     event: KeyboardEvent | MouseEvent,
     reason: 'escapeKeyDown' | 'backdropClick'
@@ -59,6 +60,7 @@ export default function Dialog(inProps: DialogProps) {
     children,
     className,
     disableEscapeKeyDown = false,
+    disableBackdropClick = false,
     onClose,
     open,
     ...other
@@ -71,6 +73,7 @@ export default function Dialog(inProps: DialogProps) {
     <Modal
       className={className}
       disableEscapeKeyDown={disableEscapeKeyDown}
+      disableBackdropClick={disableBackdropClick}
       onClose={onClose}
       open={open}
       {...other}

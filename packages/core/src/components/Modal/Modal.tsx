@@ -39,6 +39,7 @@ export interface ModalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'childr
   ) => void;
   open: boolean;
   disableEscapeKeyDown?: boolean;
+  disableBackdropClick?: boolean;
 }
 
 export default function Modal(props: ModalProps) {
@@ -48,6 +49,7 @@ export default function Modal(props: ModalProps) {
     onClose,
     open,
     disableEscapeKeyDown = false,
+    disableBackdropClick = false,
     ...other
   } = props;
 
@@ -90,10 +92,10 @@ export default function Modal(props: ModalProps) {
       return;
     }
 
-    if (onClose) {
+    if (!disableBackdropClick && onClose) {
       onClose(event, 'backdropClick');
     }
-  }, [onClose]);
+  }, [disableBackdropClick, onClose]);
 
   if (!open && exited) {
     return null;

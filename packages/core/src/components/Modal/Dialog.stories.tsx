@@ -18,6 +18,10 @@ const meta: Meta<typeof Dialog> = {
       control: 'boolean',
       description: 'ESC 키로 닫기 비활성화',
     },
+    disableBackdropClick: {
+      control: 'boolean',
+      description: 'Backdrop 클릭으로 닫기 비활성화',
+    },
     onClose: {
       action: 'closed',
       description: 'Dialog가 닫힐 때 호출되는 콜백',
@@ -37,6 +41,7 @@ export const Default: Story = {
   args: {
     open: true,
     disableEscapeKeyDown: false,
+    disableBackdropClick: false,
   },
   render: (args) => (
     <Dialog
@@ -48,9 +53,9 @@ export const Default: Story = {
           Dialog Title
         </h2>
         <p style={{ margin: '0 0 24px 0' }}>
-          Controls 패널에서 open, disableEscapeKeyDown을 변경해보세요.
+          Controls 패널에서 props를 변경해보세요.
           <br />
-          ESC를 누르거나 바깥을 클릭하면 닫힙니다.
+          ESC를 누르거나 Backdrop을 클릭하면 닫힙니다.
         </p>
         <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
           <button>취소</button>

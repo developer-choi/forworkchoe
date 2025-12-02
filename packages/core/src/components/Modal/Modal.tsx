@@ -1,4 +1,13 @@
-import {cloneElement, type HTMLAttributes, type KeyboardEvent, type MouseEvent, type ReactElement, type ReactNode, useCallback, useEffect, useRef, useState} from 'react';
+import {
+  cloneElement,
+  type HTMLAttributes,
+  type KeyboardEvent,
+  type MouseEvent,
+  type ReactElement,
+  type ReactNode,
+  useCallback,
+  useRef
+} from 'react';
 import FocusTrap from './FocusTrap';
 import Portal from './Portal';
 import styles from './Modal.module.scss';
@@ -53,17 +62,7 @@ export default function Modal(props: ModalProps) {
     ...other
   } = props;
 
-  const [exited, setExited] = useState(!open);
   const backdropClickRef = useRef(false);
-
-  // Open state change effect
-  useEffect(() => {
-    if (open) {
-      setExited(false);
-    } else {
-      setExited(true);
-    }
-  }, [open]);
 
   // ESC Key Handler
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
@@ -97,7 +96,7 @@ export default function Modal(props: ModalProps) {
     }
   }, [disableBackdropClick, onClose]);
 
-  if (!open && exited) {
+  if (!open) {
     return null;
   }
 
@@ -112,10 +111,6 @@ export default function Modal(props: ModalProps) {
         onKeyDown={handleKeyDown}
         className={className}
         {...other}
-        style={{
-          visibility: !open && exited ? 'hidden' : undefined,
-          ...other.style,
-        }}
       >
         <ModalBackdrop
           onMouseDown={handleBackdropMouseDown}

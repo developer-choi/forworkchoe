@@ -8,7 +8,5 @@ export {default as useKeyboardShortcut} from '@/hooks/event/useKeyboardShortcut.
 
 export * from '@/hooks/library/react.ts';
 
-export * from '@/hooks/modal.ts';
-
 export * from '@/hooks/useCounter.ts';
 export {default as useCounter} from '@/hooks/useCounter.ts';

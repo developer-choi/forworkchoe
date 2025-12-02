@@ -1,5 +1,4 @@
 import {
-  cloneElement,
   type HTMLAttributes,
   type KeyboardEvent,
   type MouseEvent,
@@ -100,11 +99,6 @@ export default function Modal(props: ModalProps) {
     return null;
   }
 
-  const childProps: any = {};
-  if (children.props.tabIndex === undefined) {
-    childProps.tabIndex = -1;
-  }
-
   return (
     <Portal>
       <ModalRoot
@@ -118,7 +112,7 @@ export default function Modal(props: ModalProps) {
         />
 
         <FocusTrap open={open}>
-          {cloneElement(children, childProps)}
+          {children}
         </FocusTrap>
       </ModalRoot>
     </Portal>

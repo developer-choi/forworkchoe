@@ -15,17 +15,6 @@ abstract push(data: D): void;
 abstract pop(): D;
 ```
 
-### 테스트 파일 상단 실행 명령어
-
-```typescript
-// yarn test src/algorithm/sort/sort.test.ts
-// yarn test src/data-structure/stack/index.test.ts
-
-describe('Sorting Algorithm', () => {
-  // ...
-});
-```
-
 ## Tanstack Query useMutation() 작성방식
 - `mutate` 대신 `mutateAsync` 와 `try-catch` 구문을 사용하는 것을 선호합니다.
 

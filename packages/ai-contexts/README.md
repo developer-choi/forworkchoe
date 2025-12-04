@@ -22,3 +22,22 @@
 1. 이 리포지토리의 `/docs/gemini` 폴더에서 컨벤션을 작성합니다.
 2. 이 패키지를 설치한 프로젝트는 `postinstall` 훅이 트리거됩니다.
 3. 정의된 `.md` 파일들이 대상 프로젝트의 `/docs/gemini` 경로로 자동 복사됩니다.
+
+--
+
+## How to use
+
+### 1. 패키지 설치
+
+```bash
+yarn add -D @forworkchoe/ai-contexts
+```
+
+### 2. `.gitignore`에 추가
+
+설치 시 자동 생성되는 `docs/gemini` 폴더를 Git에서 제외하려면:
+
+```gitignore
+# AI Context files (auto-generated)
+docs/gemini/
+```

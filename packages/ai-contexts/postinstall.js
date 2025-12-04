@@ -60,6 +60,13 @@ try {
     process.exit(0);
   }
 
+  // 기존 docs/gemini 폴더가 존재하면 삭제
+  if (fs.existsSync(targetDir)) {
+    console.log('[ai-contexts] Removing existing docs/gemini folder...');
+    fs.rmSync(targetDir, { recursive: true, force: true });
+    console.log('[ai-contexts] Existing folder removed.');
+  }
+
   const copiedCount = copyRecursive(sourceDir, targetDir);
 
   console.log(`[ai-contexts] Successfully copied ${copiedCount} file(s) to docs/gemini/`);

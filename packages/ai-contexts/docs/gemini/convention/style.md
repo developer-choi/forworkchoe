@@ -1,6 +1,6 @@
 ## SCSS 사용
 
-**CSS Modules**
+### CSS Modules
 ```scss
 // index.module.scss
 .container {
@@ -21,7 +21,7 @@
 }
 ```
 
-**@use 지시어 (구식 @import 대신)**
+### @use 지시어 (구식 @import 대신)
 ```scss
 @use "@/styles/util";
 @use "@/styles/color";
@@ -32,24 +32,11 @@
 }
 ```
 
-**Mixin 활용**
-```scss
-@mixin cursorByState {
-  cursor: pointer;
+### Dart Sass 모듈 시스템 필수
+- @use 'sass:list', @use 'sass:map' 사용
+- nth() → list.nth(), map-get() → map.get()
 
-  &.loading {
-    cursor: progress;
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-  }
-}
-
-.button {
-  @include cursorByState;
-}
-```
+---
 
 ## classnames 라이브러리
 

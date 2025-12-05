@@ -2,7 +2,7 @@
 
 ## 주석 작성 스타일
 
-**예외 상황 문서화**
+### 예외 상황 문서화
 ```typescript
 /**
  * @throws {RangeError} Stack overflow
@@ -14,6 +14,8 @@ abstract push(data: D): void;
  */
 abstract pop(): D;
 ```
+
+---
 
 ## Tanstack Query useMutation() 작성방식
 - `mutate` 대신 `mutateAsync` 와 `try-catch` 구문을 사용하는 것을 선호합니다.
@@ -45,3 +47,10 @@ try {
   // 에러 시 로직
 }
 ```
+
+---
+
+## Git
+git add -A 절대 금지 (untracked 파일 포함 위험)
+
+git add [특정파일] 만 사용

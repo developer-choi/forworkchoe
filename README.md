@@ -10,9 +10,3 @@
 
 ### 1. [@forworkchoe/core 바로가기](https://github.com/developer-choi/forworkchoe/tree/main/packages/core)
 > 재사용 가능한 UI 컴포넌트, Hooks, Utils 모음
-
-### 2. [@forworkchoe/ai-contexts 바로가기](https://github.com/developer-choi/forworkchoe/tree/main/packages/ai-contexts)
-> AI Coding Assistant를 위한 Context 관리 도구
-
-* Goal: AI에게 매번 설명해야 하는 규칙을 한곳에서 관리하고, 패키지 설치만으로 다른 프로젝트에 적용합니다.
-* Mechanism: 패키지 설치 시 `postinstall` 스크립트가 작동하여, 정의된 컨벤션 파일(`.md`)을 대상 프로젝트로 자동 복사합니다.

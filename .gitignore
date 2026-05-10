@@ -1,3 +1,7 @@
 .yarnrc.yml
+
+# IDE
+.idea/
+
 # Claude Code local settings
 .claude/

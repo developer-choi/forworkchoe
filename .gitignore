@@ -1,1 +1,9 @@
 .yarnrc.yml
+
+# dependencies / build artifacts
+node_modules/
+.yarn/
+coverage/
+
+# IDE
+.idea/
